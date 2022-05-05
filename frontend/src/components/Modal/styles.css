@@ -1,0 +1,45 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  position: absolute;
+  background-color: #fefefe;
+  top: 80px;
+  left: 300px;
+  right: 300px;
+  bottom: 80px;
+
+  margin-bottom: 5rem;
+
+  border-radius: 4px;
+  /* overflow-y: auto; */
+  /* overflow-x: hidden; */
+}
+
+@media (max-height: 900px) {
+  .modal {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 1475px) {
+  .modal {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .modal {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
