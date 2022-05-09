@@ -4,10 +4,10 @@ import {
   Container,
   IntroductionContent,
   LeftHome,
-  RightHome,
   Period,
   Cards,
   Card,
+  IntroductionContentContainer,
 } from "./styles";
 import Modal from "../../components/Modal";
 
@@ -19,6 +19,7 @@ import ebiImg from "../../assets/ebi_base_menor_png32.png";
 import csConsoftImg from "../../assets/csConsoft.png";
 import easyGestorImg from "../../assets/easygestor web 3.png";
 import photoHomePage from "../../assets/photoHomePage.svg";
+import { Navbar } from "../../components/Navbar";
 
 export interface Project {
   _id: string;
@@ -96,25 +97,24 @@ export function Main() {
   return (
     <Container>
       <main>
+        <Navbar />
         <IntroductionContent>
-          <LeftHome>
-            <p>BOAS-VINDAS A COMPUTAÇÃO AMOSTRA 2022 👋 👋</p>
-            <h1>Amazon Hacking</h1>
-            <p>
-              Universitários elaboram projeto sustentável para Ilha das Onças. A
-              CompAmostra reúne uma Amostra Digital dos projetos tecnológicos
-              dos graduandos.
-            </p>
-
-            <div>
-              <button>Ver Projetos</button>
-              <a href="#">Saiba Mais</a>
-            </div>
-          </LeftHome>
-
-          <RightHome>
+          <IntroductionContentContainer>
+            <LeftHome>
+              <span>BOAS-VINDAS A COMPUTAÇÃO AMOSTRA 2022 👋 👋</span>
+              <h1>Amazon Hacking</h1>
+              <p>
+                Universitários elaboram projeto sustentável para Ilha das Onças.
+                A CompAmostra reúne uma Amostra Digital dos projetos
+                tecnológicos dos graduandos.
+              </p>
+              <div>
+                <button>Ver Projetos</button>
+                <a href="#">Saiba Mais</a>
+              </div>
+            </LeftHome>
             <img src={photoHomePage} alt="Vista na ilha das onças" />
-          </RightHome>
+          </IntroductionContentContainer>
         </IntroductionContent>
 
         {periods?.map((period) => (

@@ -9,13 +9,18 @@ export const NavbarContainer = styled.nav`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  height: 54.391px;
 
   width: 100%;
-  position: fixed;
+  background-color: #004b23;
 
-  padding: 2rem 5rem;
-`
+  padding: 2rem 5rem 0rem 5rem;
 
+  @media (max-width: 768px) {
+    justify-content: end;
+    align-items: center;
+  }
+`;
 
 export const Logo = styled.a`
   display: flex;
@@ -33,60 +38,49 @@ export const Logo = styled.a`
     width: 4rem;
     height: 3.4rem;
   }
-`
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
 export const Menu = styled.div<MenuProps>`
   display: flex;
   gap: 54px;
-  position: relative;
 
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
 
-
-  a { 
+  a {
     text-decoration: none;
     color: white;
-    filter: brightness(.7);
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
 
     span {
       width: 0;
       height: 2px;
       background-color: white;
-      transition: width .2s;
+      transition: width 0.2s;
     }
 
     &:hover span {
       width: 100%;
     }
-
-    &:hover{
-      filter: brightness(1);
-    }
-/* 
-    &[data-active]{
-      filter: brightness(1);
-    }
-
-    &[data-active] span{
-      width: 100%;
-    } */
   }
 
   @media (max-width: 768px) {
     overflow: hidden;
-    flex-direction: column; 
+    flex-direction: column;
     width: 100%;
-    max-height: ${({isOpen}) => (isOpen ? '300px' : '0')};
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
     transition: max-height 0.3s ease-in;
   }
-`
+`;
 
 export const Hamburger = styled.div`
   display: none;
@@ -94,10 +88,10 @@ export const Hamburger = styled.div`
 
   cursor: pointer;
 
-  span{
+  span {
     height: 2px;
     width: 25px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     margin-bottom: 4px;
     border-radius: 5px;
   }
@@ -105,4 +99,4 @@ export const Hamburger = styled.div`
   @media (max-width: 768px) {
     display: flex;
   }
-`
+`;

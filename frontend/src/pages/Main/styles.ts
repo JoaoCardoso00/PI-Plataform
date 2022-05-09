@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   main {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   @media only screen and (max-width: 1200px) {
@@ -18,7 +18,8 @@ export const Container = styled.div`
       height: 5rem;
       z-index: 999;
 
-      .moreinfo, .cesupa-logo-nav {
+      .moreinfo,
+      .cesupa-logo-nav {
         display: none;
       }
 
@@ -37,11 +38,24 @@ export const Container = styled.div`
 
 export const IntroductionContent = styled.div`
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 54px);
   align-items: center;
   justify-content: center;
-  background-color: #004B23;
+  background-color: #004b23;
+  flex-wrap: wrap;
+`;
 
+export const IntroductionContentContainer = styled.div`
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: calc(54px + 2rem);
+
+  img {
+    max-width: 100%;
+  }
 `;
 
 export const LeftHome = styled.div`
@@ -49,77 +63,74 @@ export const LeftHome = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  text-align: center;
 
-  width: 50%;
-
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 400;
 
-  p:first-child  {
-    font-family: 'Poppins';
-    font-weight: 500;
-    font-size: 0.875rem;
-
+  span {
     color: var(--text-font);
-
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    text-shadow: 2px 2px 8px #00000081;
+    margin-bottom: 0.75rem;
   }
 
-  p{
+  p {
     color: var(--title-font);
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 1.125rem;
-    margin-bottom: 3.313rem;
+    text-shadow: 2px 2px 8px #00000099;
+    margin: 0 2rem 3rem 2rem;
+    text-align: left;
 
-    width: 52ch;
+    max-width: 36.5rem;
   }
 
   h1 {
     font-weight: 700;
     font-size: 3.25rem;
     margin-bottom: 1.188rem;
+    text-shadow: 2px 2px 8px #00000099;
   }
 
   button {
     width: 10.25rem;
     height: 3rem;
-    background: #48CAE4;
+    background: #48cae4;
     border-radius: 1.563rem;
     border: none;
 
     font-weight: 700;
     font-size: 0.875rem;
-    color: #000066;
+    color: #fff3f3;
+    text-shadow: 2px 2px 8px #00000099;
   }
 
   a {
-    text-underline-offset: 0.20rem;
+    text-underline-offset: 0.2rem;
     color: var(--text-font);
   }
 
   div {
-    display:flex;
+    display: flex;
     align-items: center;
-    gap:3.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3.5rem;
   }
-`
 
-export const RightHome = styled.div`
-  width: 50%;
-  margin: auto;
-  img {
-    width: 65%;
+  @media screen and (max-width: 1203px) {
+    margin-top: 3rem;
   }
-`
+`;
 
 export const Period = styled.div`
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #7380f3;
   margin-left: 5rem;
   margin-top: 2rem;
@@ -163,7 +174,7 @@ export const Cards = styled.div`
 `;
 
 export const Card = styled.div`
-  font-family: 'Roboto', serif;
+  font-family: "Roboto", serif;
   display: flex;
   flex-direction: column;
   max-width: 350px;
@@ -173,7 +184,7 @@ export const Card = styled.div`
   cursor: pointer;
   margin: 15px 0;
   padding: 30px;
-  box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.5);
 
   header {
     display: flex;
