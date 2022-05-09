@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, IntroductionContent, Period, Cards, Card } from "./styles";
-import Sidebar from "../../components/Sidebar";
+import { Container, IntroductionContent, LeftHome, RightHome, Period, Cards, Card } from "./styles";
 import Modal from "../../components/Modal";
 
 import paraticImg from "../../assets/paratic2.png";
@@ -11,6 +10,8 @@ import cesupaImg from "../../assets/CESUPA-04.png";
 import ebiImg from "../../assets/ebi_base_menor_png32.png";
 import csConsoftImg from "../../assets/csConsoft.png";
 import easyGestorImg from "../../assets/easygestor web 3.png";
+import photoHomePage from "../../assets/photoHomePage.svg"
+
 
 export interface Project {
   _id: string;
@@ -87,91 +88,29 @@ export function Main() {
 
   return (
     <Container>
-
+      
       <main>
         <IntroductionContent>
-          <img
-            src={compAmostraImg}
-            alt="Computacao Amostra"
-            className="softamostra-logo"
-          />
+          <LeftHome>
 
-          <p>
-            O portal da Computação Amostra reúne uma Amostra Digital dos
-            projetos tecnológicos dos graduandos do 3º, 5º e 7º períodos do
-            curso de{" "}
-            <strong>Bacharelado em Ciência da Computação do CESUPA</strong>.
+          <p>BOAS-VINDAS A COMPUTAÇÃO AMOSTRA 2022 👋 👋</p>
+         <h1>Amazon Hacking</h1>
+         <p>
+            Universitários elaboram projeto sustentável para Ilha das Onças.  
+            A CompAmostra reúne uma Amostra Digital dos projetos tecnológicos dos graduandos. 
           </p>
-
-          <p className="text">
-            A COVID-19 impactou profundamente todos os setores da economia, e em
-            especial o setor do varejo. Diversas empresas varejistas tiveram que
-            repensar seus modelos de negócios e buscar por inovação. Em tempos
-            difíceis, os desafios trazem oportunidades a todo instante. Entramos
-            em uma nova década do séc. XXI vivenciando uma intensa transformação
-            digital, a humanidade se uniu em uma revolução científica,
-            disruptiva e de superação. É tempo de repensarmos a tecnologia para
-            novos valores, nos reconectando como sociedade.
-          </p>
-
-          <p>
-            <b>É tempo de Reconectar!!!</b>
-          </p>
-
-          <p className="box">
-            <strong>Ajude-nos a escolher os melhores projetos!</strong>
-          </p>
-
-          <p>
-            Para isso, basta selecionar o período da turma e votar na melhor
-            proposta para o mercado.
-          </p>
-
-          <a href="https://www.cesupa.br/Graduacao/Exatas/bcc.asp">
-            Quer saber mais sobre o curso de Ciência da Computação? Clique aqui
-          </a>
-
-          <p>Conheça mais sobre a Computação Amostra:</p>
-          <div className="comp-amostra">
-            <iframe
-              width="700px"
-              height="400px"
-              frameBorder="0"
-              src="https://www.youtube.com/embed/PuRcj4yvfso"
-              title="Computação Amostra"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+          
+          <div>
+          <button>Ver Projetos</button>
+          <a href="#">Saiba Mais</a>
           </div>
 
-          <div className="vote-timer">
-            <label>A votação acaba em</label>
-            {getTimeRemaining()}
-          </div>
+          </LeftHome>
 
-          <section>
-            <p>APOIO</p>
+          <RightHome>
+            <img src={photoHomePage} alt="Vista na ilha das onças" />
 
-            <div>
-              <a href="http://www.paratic.com.br/">
-                <img src={paraticImg} alt="PARATIC" />
-              </a>
-              <a href="https://omnicesupa.com">
-                <img src={omniImg} alt="OMNI" />
-              </a>
-              <a href="http://www.cs-consoft.com.br/">
-                <img src={csConsoftImg} alt="CS-CONSOFT" />
-              </a>
-              <a href="http://ebi.com.br/">
-                <img src={ebiImg} alt="EBI" />
-              </a>
-              <a href="https://easygestor.com/">
-                <img src={easyGestorImg} alt="EASY GESTOR" />
-              </a>
-            </div>
-          </section>
-
-          <img src={cesupaImg} alt="CESUPA" className="cesupa-logo" />
+          </RightHome>
         </IntroductionContent>
 
         {periods?.map((period) => (

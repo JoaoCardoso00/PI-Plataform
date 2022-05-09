@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   main {
-    margin-left: 15rem;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
   }
@@ -38,142 +37,75 @@ export const Container = styled.div`
 
 export const IntroductionContent = styled.div`
   display: flex;
-  place-content: center;
-  flex-direction: column;
-  text-align: center;
   min-height: 100vh;
-  background-color: #040a3c;
+  align-items: center;
+  justify-content: center;
+  background-color: #004B23;
 
-  .softamostra-logo {
-    width: 500px;
-    align-self: center;
-    padding: 20px 30px;
-    background-color: #fefefe;
-    border-radius: 30px;
-    margin-bottom: 20px;
+  gap: 5.625rem;
+`;
+
+export const LeftHome = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+
+  font-family: 'Roboto';
+  font-weight: 400;
+
+  p:first-child  {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 0.875rem;
+
+    color: #EDDEA4;
+
+    margin-bottom: 0.5rem;
+  }
+
+  p{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.125rem;
+    margin-bottom: 3.313rem;
+
+    width: 52ch;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3.25rem;
+    margin-bottom: 1.188rem;
+  }
+
+  button {
+    width: 10.25rem;
+    height: 3rem;
+    background: #48CAE4;
+    border-radius: 1.563rem;
+    border: none;
+
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #000066;
   }
 
   a {
-    color: #fefefe;
-    margin-top: 20px;
-  }
-   p b {
-     font-size: 30px;
-   }
-
-  .cesupa-logo {
-    width: 200px;
-    align-self: center;
-    margin-top: 50px;
-  }
-  .text {
-    font-size: 25px;
+    text-underline-offset: 0.20rem;
+    color: #EDDEA4;
   }
 
-  .box {
-    padding: 10px 25px;
-    border-radius: 10px;
-    background-color: #fefefe;
-    color: #040a3c;
-  }
-
-  >p {
-    max-width: 700px;
-    align-self: center;
-    color: #fefefe;
-    font-size: 20px;
-    margin-top: 20px;
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  div {
+    display:flex;
     align-items: center;
-    font-weight: 700;
-
-    >p {
-      color: #fefefe;
-      margin: 40px 0 10px 0;
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      border-radius: 30px;
-      background-color: #fefefe;
-      max-width: 800px;
-
-      img {
-        width: 150px;
-        padding: 5px;
-      }
-    }
+    gap:3.5rem;
   }
+`
 
-  .vote-timer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #fefefe;
-    margin-top: 50px;
-
-    p {
-      font-size: 25px;
-      margin: 0;
-    }
+export const RightHome = styled.div`
+  img { 
   }
-
-  @media (max-width: 700px) {
-    section {
-      div {
-        img {
-          width: 150px;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 550px) {
-    .softamostra-logo {
-      width: 400px;
-    }
-
-    >p {
-      font-size: 18px;
-    }
-
-    .cesupa-logo {
-      margin: 20px 0 20px 0;
-    }
-
-  }
-
-  @media (max-width: 450px) {
-    .softamostra-logo {
-      width: 300px;
-      margin-top: 20px;
-    }
-
-    >p {
-      font-size: 16px;
-      max-width: 350px;
-    }
-
-    section {
-      div {
-        flex-direction: column;
-
-        img {
-          width: 120px;
-        }
-      }
-    }
-  }
-`;
+`
 
 export const Period = styled.div`
   min-height: 100vh;
