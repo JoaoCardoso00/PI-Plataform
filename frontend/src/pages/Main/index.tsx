@@ -87,7 +87,6 @@ export function Main() {
 
   return (
     <Container>
-      <Sidebar periods={periods} />
 
       <main>
         <IntroductionContent>
