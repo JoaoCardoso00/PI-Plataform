@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface MenuProps {
+  isOpen: Boolean;
+}
+
 export const NavbarContainer = styled.nav`
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +13,7 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   position: fixed;
 
-  padding: 2rem;
+  padding: 2rem 5rem;
 `
 
 
@@ -31,7 +35,7 @@ export const Logo = styled.a`
   }
 `
 
-export const Menu = styled.div`
+export const Menu = styled.div<MenuProps>`
   display: flex;
   gap: 54px;
   position: relative;
@@ -76,10 +80,11 @@ export const Menu = styled.div`
   }
 
   @media (max-width: 768px) {
-    display: none;
     overflow: hidden;
     flex-direction: column; 
     width: 100%;
+    max-height: ${({isOpen}) => (isOpen ? '300px' : '0')};
+    transition: max-height 0.3s ease-in;
   }
 `
 

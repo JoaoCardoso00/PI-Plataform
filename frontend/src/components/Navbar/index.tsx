@@ -4,6 +4,7 @@ import { NavbarContainer, Logo, Hamburger, Menu } from "./styles";
 import CompAmostraLogo from "../../assets/Logo base.png";
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <NavbarContainer>
@@ -12,13 +13,15 @@ export function Navbar() {
         CompAmostra
       </Logo>
 
-      <Hamburger>
+      <Hamburger onClick={() => {
+      setIsOpen((curr) => !curr); 
+    }} >
         <span />
         <span />
         <span />
       </Hamburger>
 
-      <Menu>
+      <Menu isOpen={isOpen}>
         <a href="#">
           Início
           <span />

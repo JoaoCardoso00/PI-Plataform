@@ -42,12 +42,16 @@ export const IntroductionContent = styled.div`
   justify-content: center;
   background-color: #004B23;
 
-  gap: 5.625rem;
 `;
 
 export const LeftHome = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  width: 50%;
 
   font-family: 'Roboto';
   font-weight: 400;
@@ -103,7 +107,10 @@ export const LeftHome = styled.div`
 `
 
 export const RightHome = styled.div`
+  width: 50%;
+  margin: auto;
   img {
+    width: 65%;
   }
 `
 
