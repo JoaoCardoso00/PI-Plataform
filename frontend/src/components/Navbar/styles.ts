@@ -1,17 +1,17 @@
 import styled from "styled-components";
+
 export const NavbarContainer = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
-
   position: fixed;
 
-  padding: 30px 45px 30px 30px;
+  padding: 2rem;
 `
+
 
 export const Logo = styled.a`
   display: flex;
@@ -20,15 +20,14 @@ export const Logo = styled.a`
   text-decoration: none;
 
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 150%;
+  font-weight: 500;
+  font-size: 2rem;
   color: white;
 
   img {
-    margin-right:0.375rem;
-    width: 3.313rem;
-    height: 2.75rem;
+    margin-right: 0.375rem;
+    width: 4rem;
+    height: 3.4rem;
   }
 `
 
@@ -42,19 +41,38 @@ export const Menu = styled.div`
   font-size: 18px;
   line-height: 27px;
 
-  cursor: pointer;
 
   a { 
     text-decoration: none;
     color: white;
-    opacity: 0.7;
+    filter: brightness(.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .2s ease-in;
+
+    span {
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width .2s;
+    }
+
+    &:hover span {
+      width: 100%;
+    }
 
     &:hover{
-      font-weight: 700;
-      opacity: 100;
-      text-decoration: underline;
-      text-underline-offset: 5px;
+      filter: brightness(1);
     }
+/* 
+    &[data-active]{
+      filter: brightness(1);
+    }
+
+    &[data-active] span{
+      width: 100%;
+    } */
   }
 
   @media (max-width: 768px) {

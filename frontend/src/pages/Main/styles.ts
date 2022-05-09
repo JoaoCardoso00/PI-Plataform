@@ -48,22 +48,22 @@ export const IntroductionContent = styled.div`
 export const LeftHome = styled.div`
   display: flex;
   flex-direction: column;
-  color: #FFFFFF;
 
   font-family: 'Roboto';
   font-weight: 400;
 
   p:first-child  {
     font-family: 'Poppins';
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.875rem;
 
-    color: #EDDEA4;
+    color: var(--text-font);
 
     margin-bottom: 0.5rem;
   }
 
   p{
+    color: var(--title-font);
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 1.125rem;
@@ -92,7 +92,7 @@ export const LeftHome = styled.div`
 
   a {
     text-underline-offset: 0.20rem;
-    color: #EDDEA4;
+    color: var(--text-font);
   }
 
   div {
@@ -103,7 +103,7 @@ export const LeftHome = styled.div`
 `
 
 export const RightHome = styled.div`
-  img { 
+  img {
   }
 `
 
