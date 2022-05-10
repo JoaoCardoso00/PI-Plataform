@@ -12,13 +12,15 @@ export const NavbarContainer = styled.nav`
   height: 54.391px;
 
   width: 100%;
-  background-color: #004b23;
+  background: #004b23;
 
   padding: 2rem 5rem 0rem 5rem;
 
   @media (max-width: 768px) {
     justify-content: end;
     align-items: center;
+    height: 100vh;
+    padding: 0rem;
   }
 `;
 
@@ -47,6 +49,8 @@ export const Logo = styled.a`
 export const Menu = styled.div<MenuProps>`
   display: flex;
   gap: 54px;
+  align-items: center;
+  position: relative;
 
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -76,13 +80,18 @@ export const Menu = styled.div<MenuProps>`
   @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
+
+    justify-content: center;
+
     width: 100%;
-    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     transition: max-height 0.3s ease-in;
+
+    background: #004b23;
   }
 `;
 
-export const Hamburger = styled.div`
+export const Hamburger = styled.div<MenuProps>`
   display: none;
   flex-direction: column;
 
@@ -98,5 +107,19 @@ export const Hamburger = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
+
+    padding: 2rem 2rem;
+
+    display: ${({ isOpen }) => (isOpen ? "none" : "flex")};
   }
+`;
+
+export const Close = styled.div<MenuProps>`
+  position: absolute;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: var(--title-font);
+  z-index: 999;
+
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
 `;

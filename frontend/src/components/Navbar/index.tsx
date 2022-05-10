@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavbarContainer, Logo, Hamburger, Menu } from "./styles";
+import { NavbarContainer, Logo, Hamburger, Menu, Close } from "./styles";
 
 import CompAmostraLogo from "../../assets/Logo base.png";
 
@@ -13,13 +13,25 @@ export function Navbar() {
         CompAmostra
       </Logo>
 
-      <Hamburger onClick={() => {
-      setIsOpen((curr) => !curr); 
-    }} >
+      <Hamburger
+        isOpen={isOpen}
+        onClick={() => {
+          setIsOpen((curr) => !curr);
+        }}
+      >
         <span />
         <span />
         <span />
       </Hamburger>
+
+      <Close
+        isOpen={isOpen}
+        onClick={() => {
+          setIsOpen((curr) => !curr);
+        }}
+      >
+        X
+      </Close>
 
       <Menu isOpen={isOpen}>
         <a href="#">
