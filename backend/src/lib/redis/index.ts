@@ -4,9 +4,9 @@ import Redis from 'ioredis'
 config();
 
 const client = new Redis({
-  host: 'redis-10589.c256.us-east-1-2.ec2.cloud.redislabs.com',
+  host: process.env.REDIS_HOST,
   port: 10589,
-  password: "OfGuUAyvE3QATg2xF69XKMNkn6OqfL7X"
+  password: process.env.REDIS_PASSWORD
 })
 
 export default client;
