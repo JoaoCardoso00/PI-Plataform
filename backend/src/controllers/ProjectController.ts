@@ -24,7 +24,8 @@ class ProjectController {
   }
 
   async store(req: Request, res: Response) {
-    const {
+    try {
+      const {
       title, image, description, participants, github, video, period_id
     } = req.body;
 
@@ -35,14 +36,15 @@ class ProjectController {
       })
     }
 
-    const project = new Project({
+    const project = await Project.create({
       title, image, description, participants, github, video, period_id: period.id
     });
-
-    period.projects.push(project);
-    period.save();
+    await Period.findByIdAndUpdate({ _id: period_id }, { $push: { projects: project } })
 
     return res.json(project);
+    } catch (error) {
+      return res.json({error})
+    }
   }
 
   async update(req: Request, res: Response) {

@@ -3,25 +3,15 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import rateLimiter from './middlewares/rateLimiter';
-
-import { config } from 'dotenv';
-config()
+import 'dotenv/config'
 const app = express();
 
-// mongoose.connect(
-//   process.env.MONGO_URL,
-//   {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true,
-//     useFindAndModify: true,
-//     auth: {
-//       username: 'fabo',
-//       password: 'OMZ8zL6Gw7RMjaG8'
-//     }
-//   }
-// );
+mongoose.connect(
+  "mongodb+srv://fabo:OMZ8zL6Gw7RMjaG8@cluster0.cmwd3.mongodb.net/PI",
+);
 
 const allowedOrigins = [
+  'http://localhost:3001',
   'http://localhost:3000',
   'http://localhost:4040/',
   'https://pi.omnicesupa.com',
@@ -34,7 +24,7 @@ app.use(cors({
 
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'The CORS policy for this site does not '
-                + 'allow access from the specified Origin.';
+        + 'allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
 

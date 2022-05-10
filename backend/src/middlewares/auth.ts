@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import 'dotenv/config';
 
 const apiKeys = new Map();
 

@@ -16,7 +16,7 @@ interface ProjectVotes {
 
 export function Dashboard() {
   const [authKey, setAuthKey] = useState("");
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [projects, setProjects] = useState([

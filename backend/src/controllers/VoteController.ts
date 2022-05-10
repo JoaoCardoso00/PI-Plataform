@@ -5,6 +5,8 @@ import { Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
 
 interface ProjectVotesInterface {
+  totalVotes: number;
+  uniqueVotes: Number;
   _id: {
     _id: ObjectId;
     title: String;
@@ -37,7 +39,7 @@ class VoteController {
       },
     );
 
-    const projectVotes: ProjectVotesInterface[] = populated.map((query: ProjectVotesInterface) => {
+    const projectVotes = populated.map((query) => {
       if (query._id !== null) {
         return {
           _id: query._id._id,

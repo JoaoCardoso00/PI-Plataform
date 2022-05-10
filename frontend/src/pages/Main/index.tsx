@@ -20,6 +20,7 @@ import csConsoftImg from "../../assets/csConsoft.png";
 import easyGestorImg from "../../assets/easygestor web 3.png";
 import photoHomePage from "../../assets/photoHomePage.svg";
 import { Navbar } from "../../components/Navbar";
+import { api } from "../../services/api";
 
 export interface Project {
   _id: string;
@@ -34,40 +35,19 @@ export interface Project {
 
 export interface Periods {
   _id: string;
-  name: string;
+  title: string;
   description: string;
   projects: Array<Project>;
 }
 
 export function Main() {
   const [modalOpen, setModalOpen] = useState("none");
-  const [periods, setPeriods] = useState<Periods[] | null>([
-    {
-      _id: "1",
-      name: "primeiro",
-      description: "primeiro periodo",
-      projects: [
-        {
-          _id: "1",
-          image:
-            "https://p2.trrsf.com/image/fget/cf/940/0/images.terra.com/2021/05/21/pikachu-preso-anime.jpeg",
-          title: "pikachu foda",
-          description: "pikachu é mto brabo",
-          participants: "participante1, 2, 3",
-          github: "github.com",
-          trello: "trello.com",
-          video:
-            "https://www.youtube.com/watch?v=ZhstyJSNKME&t=166s&ab_channel=CORTESCANHOTOS",
-        },
-      ],
-    },
-  ]);
+  const [periods, setPeriods] = useState<Periods[] | null>(null);
 
   useEffect(() => {
-    // api.get('/periods').then(({ data }) => {
-    //   console.log(data);
-    //   setPeriods(data);
-    // })
+    api.get('/periods').then(({ data }) => {
+      setPeriods(data);
+    })
   }, []);
 
   function getTimeRemaining() {
@@ -117,14 +97,14 @@ export function Main() {
           </IntroductionContentContainer>
         </IntroductionContent>
 
-        {periods?.map((period) => (
+        {periods && periods.map((period) => (
           <Period id={period._id} key={period._id}>
-            <h3>{period.name}</h3>
+            <h3>{period.title}</h3>
             <p>{period.description}</p>
 
             <Cards>
               {period.projects.map((project) => (
-                <React.Fragment key={project._id}>
+                <>
                   <Card onClick={() => openModal(project._id)}>
                     <header>
                       {project.image ? (
@@ -143,7 +123,7 @@ export function Main() {
                     isOpen={modalOpen === project._id}
                     close={closeModal}
                   />
-                </React.Fragment>
+                </>
               ))}
             </Cards>
           </Period>
