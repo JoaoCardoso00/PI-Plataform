@@ -87,7 +87,7 @@ export const Menu = styled.div<MenuProps>`
     height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     transition: max-height 0.3s ease-in;
 
-    background: red;
+    background: #004b23;
   }
 `;
 
@@ -107,13 +107,19 @@ export const Hamburger = styled.div<MenuProps>`
 
   @media (max-width: 768px) {
     display: flex;
-    
+
     padding: 2rem 2rem;
-    
+
     display: ${({ isOpen }) => (isOpen ? "none" : "flex")};
   }
 `;
 
-export const Close = styled.div`
+export const Close = styled.div<MenuProps>`
+  position: absolute;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: var(--title-font);
+  z-index: 999;
 
-`
+  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+`;
