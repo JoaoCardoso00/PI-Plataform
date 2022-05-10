@@ -13,7 +13,9 @@ export function Navbar() {
         CompAmostra
       </Logo>
 
-      <Hamburger onClick={() => {
+      <Hamburger 
+      isOpen={isOpen}
+      onClick={() => {
       setIsOpen((curr) => !curr); 
     }} >
         <span />
