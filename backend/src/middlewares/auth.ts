@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from "express";
 
 const apiKeys = new Map();
 
-apiKeys.set('f981d14', true);
-apiKeys.set('d5b0e90', true);
-apiKeys.set('2f9b8a8', true);
+apiKeys.set(process.env.API_KEY1, true);
+apiKeys.set(process.env.API_KEY2, true);
+apiKeys.set(process.env.API_KEY3, true);
 
 export default async (req: Request, res: Response, next: NextFunction) => {
   const key = req.header('X-API-KEY');

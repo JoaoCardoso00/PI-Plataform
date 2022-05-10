@@ -4,21 +4,22 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import rateLimiter from './middlewares/rateLimiter';
 
-require('dotenv/config');
-
+import { config } from 'dotenv';
+config()
 const app = express();
 
-mongoose.connect(
-  `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}`,
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndModify: true,
-    auth: {
-      authdb: "admin"
-    }
-  }
-);
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   {
+//     useUnifiedTopology: true,
+//     useNewUrlParser: true,
+//     useFindAndModify: true,
+//     auth: {
+//       username: 'fabo',
+//       password: 'OMZ8zL6Gw7RMjaG8'
+//     }
+//   }
+// );
 
 const allowedOrigins = [
   'http://localhost:3000',
@@ -46,4 +47,4 @@ app.use(rateLimiter);
 
 app.use('/v1', routes);
 
-module.exports = app;
+export const handler = app;

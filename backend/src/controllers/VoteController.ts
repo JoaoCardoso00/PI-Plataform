@@ -1,12 +1,25 @@
-import { aggregate, find, create } from '../models/Vote';
-import { populate } from '../models/Project';
+import Vote from '../models/Schemas/Vote';
+import Project from '../models/Schemas/Project';
 import { isAfter, parseISO } from 'date-fns';
+import { Request, Response } from 'express';
+import { ObjectId } from 'mongoose';
+
+interface ProjectVotesInterface {
+  _id: {
+    _id: ObjectId;
+    title: String;
+    times_clicked: Number;
+    period_id: ObjectId;
+  }
+  total: Number;
+  unique: String[];
+}
 
 class VoteController {
-  async index(req, res) {
+  async index(req: Request, res: Response) {
     const { filter } = req.query;
 
-    const votes = await aggregate([
+    const votes = await Vote.aggregate([
       {
         $group: {
           _id: '$project_id',
@@ -16,7 +29,7 @@ class VoteController {
       },
     ]);
 
-    const populated = await populate(
+    const populated = await Project.populate(
       votes,
       {
         path: '_id',
@@ -24,7 +37,7 @@ class VoteController {
       },
     );
 
-    const projectVotes = populated.map((query) => {
+    const projectVotes: ProjectVotesInterface[] = populated.map((query: ProjectVotesInterface) => {
       if (query._id !== null) {
         return {
           _id: query._id._id,
@@ -44,16 +57,16 @@ class VoteController {
       0,
     );
     const uniqueVotesCount = projectVotes.reduce(
-      (acc, val) => acc + val.uniqueVotes,
+      (acc: Number, val) => acc + val.uniqueVotes,
       0,
     );
 
     const projectsSortedByFilter = projectVotes.sort((a, b) => {
       const filterType = filter !== 'unique' &&
-                          filter !== 'total' ?
-                          '' :
-                          `${filter}Votes`
-      ;
+        filter !== 'total' ?
+        '' :
+        `${filter}Votes`
+        ;
 
       if (a[filterType] > b[filterType]) {
         return -1;
@@ -73,17 +86,17 @@ class VoteController {
     });
   }
 
-  async show(req, res) {
+  async show(req: Request, res: Response) {
     const { projectId } = req.params;
 
-    const votes = await find({
+    const votes = await Vote.find({
       project_id: projectId,
     });
 
     return res.json(votes);
   }
 
-  async store(req, res) {
+  async store(req: Request, res: Response) {
     const { projectId, email } = req.body;
 
     const date = '2020-07-19 20:59:59';
@@ -97,7 +110,7 @@ class VoteController {
     }
 
     try {
-      const voting = await create({
+      const voting = await Vote.create({
         project_id: projectId,
         email,
       });
