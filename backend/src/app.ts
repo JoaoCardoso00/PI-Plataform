@@ -7,7 +7,7 @@ import 'dotenv/config'
 const app = express();
 
 mongoose.connect(
-  "mongodb+srv://fabo:OMZ8zL6Gw7RMjaG8@cluster0.cmwd3.mongodb.net/PI",
+  process.env.MONGO_URL!,
 );
 
 const allowedOrigins = [
