@@ -6,6 +6,7 @@ export default createGlobalStyle`
         --text-font: #eddea4;
         --title-font: #fff;
         --button: #48C4EA;
+        --text-secondary: #0F241D;
     }
 
     * {
