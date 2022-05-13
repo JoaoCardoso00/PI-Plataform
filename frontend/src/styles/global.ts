@@ -13,7 +13,7 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }    
+    }
     // font-size: 16px (Desktop)
     html {
         @media (max-width: 1080px) {
@@ -27,10 +27,10 @@ export default createGlobalStyle`
         background: #fff;
         -webkit-font-smoothing: antialiased;
     }
-    input, textarea, button {
+    input, textarea, button, p {
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
-    }    
+    }
     h1, h2, h3, h4, h5, h6, strong {
         font-family: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: var(--title-font);
@@ -43,5 +43,4 @@ export default createGlobalStyle`
         opacity: 0.6;
         cursor: not-allowed;
     }
-
 `;

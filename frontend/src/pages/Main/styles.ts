@@ -139,19 +139,19 @@ export const AboutContent = styled.div`
   }
 
   //Segunda div *Responsividade e deixar ela no final da pagina
-  img:nth-child(4){
+  img:nth-child(4) {
     margin-top: 55px;
   }
 
   h1 {
     font-weight: 700;
     font-size: 36px;
-    
+
     color: var(--text-secondary);
   }
 
   //Div dos conteudos
-  div{
+  div {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -161,22 +161,20 @@ export const AboutContent = styled.div`
   }
 
   @media only screen and (max-width: 1200px) {
-    div{
+    div {
       justify-content: center;
     }
   }
-
-`
-
+`;
 
 export const AboutLeft = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 
-  //Deixar mais responsivel 
+  //Deixar mais responsivel
   p {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.25rem;
@@ -185,25 +183,25 @@ export const AboutLeft = styled.div`
     max-width: 36.5rem;
   }
 
-  iframe{
-    max-width: 100%;
-    
+  iframe {
+    width: 23rem;
+
     //Nao conseguir deixar a altura automatica
     margin: auto;
     border: none;
   }
-`
+`;
 
 export const AboutRight = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 
-  //Deixar Responsivel 
+  //Deixar Responsivel
   img {
     min-width: 100%;
   }
-`
+`;
 
 export const Period = styled.div`
   min-height: 100vh;

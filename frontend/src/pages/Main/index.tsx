@@ -26,6 +26,7 @@ import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
 import compAmostraGanhadores2 from "../../assets/compAmostraGanhadores2.svg";
 import dividerArrow from "../../assets/dividerArrow.svg";
 import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer"
 import { api } from "../../services/api";
 
 export interface Project {
@@ -172,6 +173,9 @@ export function Main() {
               </Cards>
             </Period>
           ))}
+  
+        <Footer />
+
       </main>
     </Container>
   );
