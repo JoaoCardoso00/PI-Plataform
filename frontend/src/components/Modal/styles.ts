@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
@@ -14,7 +14,7 @@ export const Container = styled.div`
       width: 120px;
       height: 120px;
       margin-right: 40px;
-      border: 0
+      border: 0;
     }
 
     h1 {
@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
   }
 
-  >button {
+  > button {
     position: absolute;
     top: -20px;
     right: -20px;
@@ -88,7 +88,8 @@ export const Container = styled.div`
     }
   }
 
-  a, span {
+  a,
+  span {
     display: block;
   }
 
@@ -121,10 +122,9 @@ export const Votebox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #7380F3;
+  background-color: #7380f3;
   color: #fefefe;
   width: 500px;
-  height: 300px;
   padding: 4rem 6rem;
 
   form {
@@ -135,6 +135,7 @@ export const Votebox = styled.div`
     input {
       border: 0;
       padding: 10px;
+      margin-top: 1.5rem;
     }
 
     button {

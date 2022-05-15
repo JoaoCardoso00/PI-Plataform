@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
   background: var(--background);
 
   @media (max-width: 768px) {
-    justify-content: space-around
+    justify-content: space-around;
   }
 `;
 
@@ -22,7 +22,7 @@ export const Copyright = styled.div`
   align-items: center;
 
   p {
-    font-size: .8rem;
+    font-size: 0.8rem;
     color: var(--title-font);
     text-align: left;
   }
@@ -42,12 +42,11 @@ export const Copyright = styled.div`
       height: 3.4rem;
     }
 
-  @media (max-width: 768px) {
-
-    p{
-    text-align: center;
-  }
-  }
+    @media (max-width: 768px) {
+      p {
+        text-align: center;
+      }
+    }
   }
 `;
 
@@ -55,6 +54,4 @@ export const SocialMedia = styled.div`
   display: flex;
   gap: 32px;
   justify-content: center;
-
-
 `;

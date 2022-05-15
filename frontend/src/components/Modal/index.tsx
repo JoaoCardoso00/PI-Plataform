@@ -8,6 +8,8 @@ import { Container, Votebox } from "./styles";
 import { api } from "../../services/api";
 
 import { Project } from "../../pages/Main/index";
+import ReCAPTCHA from "react-google-recaptcha";
+
 interface ModalProps {
   project: Project;
   isOpen: boolean;
@@ -16,6 +18,7 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
   const [email, setEmail] = useState("");
+  const [isValidated, setIsValidated] = useState(false);
 
   useEffect(() => {
     ReactModal.setAppElement("body");
@@ -50,6 +53,10 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
     }
   }
 
+  function validateRecaptcha() {
+    setIsValidated(true);
+  }
+
   return (
     <>
       <ReactModal
@@ -79,11 +86,13 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>
-
+              <ReCAPTCHA
+                sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
+                onChange={validateRecaptcha}
+              />
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"
@@ -91,7 +100,9 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Seu e-mail"
                 />
-                <button type="submit">VOTAR</button>
+                <button type="submit" disabled={!isValidated}>
+                  VOTAR
+                </button>
 
                 <span>* Só será valido 1 voto por email</span>
               </form>

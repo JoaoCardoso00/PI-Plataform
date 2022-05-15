@@ -200,6 +200,7 @@ export const AboutRight = styled.div`
   //Deixar Responsivel
   img {
     min-width: 100%;
+    max-width: 100%;
   }
 `;
 

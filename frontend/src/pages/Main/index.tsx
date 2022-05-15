@@ -26,7 +26,7 @@ import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
 import compAmostraGanhadores2 from "../../assets/compAmostraGanhadores2.svg";
 import dividerArrow from "../../assets/dividerArrow.svg";
 import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer"
+import { Footer } from "../../components/Footer";
 import { api } from "../../services/api";
 
 export interface Project {
@@ -49,7 +49,26 @@ export interface Periods {
 
 export function Main() {
   const [modalOpen, setModalOpen] = useState("none");
-  const [periods, setPeriods] = useState<Periods[] | null>(null);
+  const [periods, setPeriods] = useState<Periods[] | null>([
+    {
+      _id: "1",
+      title: "1 periodo",
+      description: "primeiro periodo é mto foda",
+      projects: [
+        {
+          _id: "2",
+          image:
+            "http://pm1.narvii.com/6434/7a2cb5fc86df1db37db549422128c66186059808_00.jpg",
+          title: "projeto 1 mto foda",
+          description: "projeto 1 é um pikachu mto brabo",
+          participants: "eu, eu e eu tbm",
+          github: "https://github.com/JoaoCardoso00/NextFire-App",
+          trello: "https://trello.com/pt-BR",
+          video: "https://youtu.be/LpnktMeDlf0",
+        },
+      ],
+    },
+  ]);
 
   useEffect(() => {
     api.get("/periods").then(({ data }) => {
@@ -118,8 +137,7 @@ export function Main() {
                 panorama favorável a troca de experiências de mercado e soluções
                 provindas do conhecimento acadêmico.
                 <br />
-                <br />
-                A Computação Amostra será realizada no Centro
+                <br />A Computação Amostra será realizada no Centro
                 Universitário do Estado do Pará (CESUPA), no período de 24 a 27
                 de maio de 2022. O evento é iniciativa dos Cursos de Computação
                 do Centro Universitário do Pará - CESUPA, o qual objetiva
@@ -130,6 +148,7 @@ export function Main() {
                 src="https://www.youtube.com/embed/PuRcj4yvfso"
                 title="Video Da Computação Amostra"
                 allowFullScreen
+                height="300"
               ></iframe>
             </AboutLeft>
             <AboutRight>
@@ -173,9 +192,8 @@ export function Main() {
               </Cards>
             </Period>
           ))}
-  
-        <Footer />
 
+        <Footer />
       </main>
     </Container>
   );
