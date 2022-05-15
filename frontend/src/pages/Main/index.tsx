@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import {
   Container,
@@ -14,13 +14,6 @@ import {
 } from "./styles";
 import Modal from "../../components/Modal";
 
-import paraticImg from "../../assets/paratic2.png";
-import omniImg from "../../assets/omni-07.png";
-import compAmostraImg from "../../assets/CompAmostra.png";
-import cesupaImg from "../../assets/CESUPA-04.png";
-import ebiImg from "../../assets/ebi_base_menor_png32.png";
-import csConsoftImg from "../../assets/csConsoft.png";
-import easyGestorImg from "../../assets/easygestor web 3.png";
 import photoHomePage from "../../assets/photoHomePage.svg";
 import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
 import compAmostraGanhadores2 from "../../assets/compAmostraGanhadores2.svg";
@@ -28,6 +21,8 @@ import dividerArrow from "../../assets/dividerArrow.svg";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { api } from "../../services/api";
+
+import { Link, Element } from "react-scroll";
 
 export interface Project {
   _id: string;
@@ -115,8 +110,12 @@ export function Main() {
                 tecnológicos dos graduandos.
               </p>
               <div>
-                <button>Ver Projetos</button>
-                <a href="#">Saiba Mais</a>
+                <Link to="periods" smooth={true}>
+                  <button>Ver Projetos</button>
+                </Link>
+                <Link to="about" smooth={true}>
+                  <a href="#">Saiba Mais</a>
+                </Link>
               </div>
             </LeftHome>
             <img src={photoHomePage} alt="Vista na ilha das onças" />
@@ -125,6 +124,7 @@ export function Main() {
 
         <AboutContent>
           <img src={dividerArrow} alt="" />
+          <Element name="about"></Element>
           <h1>Sobre</h1>
           <div>
             <AboutLeft>
@@ -158,8 +158,8 @@ export function Main() {
             </AboutRight>
           </div>
           <img src={dividerArrow} alt="" />
+          <Element name="periods"></Element>
         </AboutContent>
-
         {periods &&
           periods.map((period) => (
             <Period id={period._id} key={period._id}>

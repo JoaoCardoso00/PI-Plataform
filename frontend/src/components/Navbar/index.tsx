@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavbarContainer, Logo, Hamburger, Menu, Close } from "./styles";
 
 import CompAmostraLogo from "../../assets/Logo base.png";
+import { Link, Element } from "react-scroll";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,14 +39,14 @@ export function Navbar() {
           Início
           <span />
         </a>
-        <a href="#">
+        <Link to="about" smooth={true}>
           Sobre
           <span />
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="periods" smooth={true}>
           Projetos
           <span />
-        </a>
+        </Link>
       </Menu>
     </NavbarContainer>
   );
