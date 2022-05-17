@@ -123,8 +123,8 @@ export function Main() {
         </IntroductionContent>
 
         <AboutContent>
-          <img src={dividerArrow} alt="" />
           <Element name="about"></Element>
+          <img src={dividerArrow} alt="" />
           <h1>Sobre</h1>
           <div>
             <AboutLeft>

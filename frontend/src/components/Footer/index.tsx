@@ -21,13 +21,13 @@ export function Footer() {
         </p>
       </Copyright>
       <SocialMedia>
-        <a href="#">
+        <a href="https://www.instagram.com/cesupaonline/">
         <img src={logoInstagram} alt="Logo do Instagram" />
         </a>
-        <a href="#">
+        <a href="https://www.facebook.com/CesupaOnline">
         <img src={logoFacebook} alt="Logo do Facebook" />
         </a>
-        <a href="#">
+        <a href="https://www.youtube.com/c/CesupaOnline">
         <img src={logoYoutube} alt="Logo do Youtube" />
         </a>
       </SocialMedia>

@@ -184,12 +184,30 @@ export const AboutLeft = styled.div`
   }
 
   iframe {
-    width: 23rem;
-
-    //Nao conseguir deixar a altura automatica
+    width: 600px;
+    height: 300px;
     margin: auto;
-    border: none;
+
+    @media (max-width: 600px) {
+      & {
+        width: 400px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      & {
+        width: 350px;
+      }
+    }
+    @media (max-width: 200px) {
+      & {
+        width: auto;
+      }
+    }
   }
+
+
+
 `;
 
 export const AboutRight = styled.div`
