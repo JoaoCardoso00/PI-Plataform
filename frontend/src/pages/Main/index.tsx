@@ -21,6 +21,7 @@ import dividerArrow from "../../assets/dividerArrow.svg";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { api } from "../../services/api";
+import { Sponsors } from "../../components/Sponsors"; 
 
 import { Link, Element } from "react-scroll";
 
@@ -192,7 +193,7 @@ export function Main() {
               </Cards>
             </Period>
           ))}
-
+        <Sponsors />
         <Footer />
       </main>
     </Container>
