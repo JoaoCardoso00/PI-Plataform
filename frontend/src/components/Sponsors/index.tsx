@@ -22,22 +22,40 @@ export function Sponsors() {
       </Textfield>
       <Brands>
         <div>
-          <img src={CesupaLogo} alt="Logo do Cesupa" />
+          <a href="https://www.cesupa.br/">
+            <img src={CesupaLogo} alt="Logo do Cesupa" />
+          </a>
           <img src={ArgoLogo} alt="Logo da Argo" />
-          <img src={OmniLogo} alt="Logo da Omni" />
+          <a href="https://omnicesupa.com/">
+            <img src={OmniLogo} alt="Logo da Omni" />
+          </a>
         </div>
         <div>
-          <img src={CabccLogo} alt="Logo do Cabcc" />
-          <img src={CaencLogo} alt="Logo Do Caenc" />
+          <a href="https://www.instagram.com/cabcc.cesupa/">
+            <img src={CabccLogo} alt="Logo do Cabcc" />
+          </a>
+          <a href="https://www.instagram.com/cabcc.cesupa/">
+            <img src={CaencLogo} alt="Logo Do Caenc" />
+          </a>
         </div>
         <div>
-          <img src={SqlNorteLogo} alt="Logo da Sql Norte" />
-          <img src={SolLogo} alt="Logo da Sol" />
+          <a href="https://www.instagram.com/sqlnorte/">
+            <img src={SqlNorteLogo} alt="Logo da Sql Norte" />
+          </a>
+          <a href="https://www.intersol.com.br/Index.sol">
+            <img src={SolLogo} alt="Logo da Sol" />
+          </a>
         </div>
         <div>
-          <img src={JambuLogo} alt="Logo da Jambu" />
-          <img src={OndroneLogo} alt="Logo da Ondrone" />
-          <img src={PaladarAmazonicoLogo} alt="Logo da Paladar Amazônico" />
+          <a href="https://www5.jambu.com.br/">
+            <img src={JambuLogo} alt="Logo da Jambu" />
+          </a>
+          <a href="https://www.ondrone.com.br/">
+            <img src={OndroneLogo} alt="Logo da Ondrone" />
+          </a>
+          <a href="https://paladaramazonico.com.br/portal/index.php">
+            <img src={PaladarAmazonicoLogo} alt="Logo da Paladar Amazônico" />
+          </a>
         </div>
       </Brands>
     </SponsorsContainer>
