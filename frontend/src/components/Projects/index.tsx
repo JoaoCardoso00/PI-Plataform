@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, ProjectsContainer, SearchContainer } from "./styles";
+import { Container, ProjectsContainer, SearchContainer } from "./styles";
 import { Project } from "../../@types";
 import { api } from "../../services/api";
 import Modal from "../../components/Modal";
 import lupaImg from "../../assets/Lupa.svg";
 import filterImg from "../../assets/Filter.svg";
+import Skeleton from "@mui/material/Skeleton";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 export function ProjectSection() {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>();
   const [modalOpen, setModalOpen] = useState<string>("none");
 
   useEffect(() => {
@@ -43,34 +51,60 @@ export function ProjectSection() {
       </SearchContainer>
 
       <ProjectsContainer>
-        {projects &&
-          projects.map((project: Project) => {
-            return (
-              <>
-                <Card
-                  key={project._id}
-                  onClick={() => openCloseModal(project._id)}
-                >
-                  <header>
-                    {project.image ? (
-                      <img src={project.image} alt={project.title} />
-                    ) : (
-                      <></>
-                    )}
-                    <h1>{project.title}</h1>
-                  </header>
+        <div className="container">
+          {!projects && (
+            <Skeleton
+              sx={{ bgcolor: "white", opacity: 0.5 }}
+              variant="rectangular"
+              width={500}
+              height={300}
+            />
+          )}
+          {projects &&
+            projects.map((project: Project) => {
+              return (
+                <>
+                  <Card className="neumorphismCard border-none shadow-black aspect-video min-h-fit flex flex-col justify-around m-2 sm:h-1/4 sm:w-full md:w-1/4 lg:w-72">
+                    <CardContent className="flex justify-between">
+                      <div>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="h2"
+                          className="title"
+                        >
+                          {project.title}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                          className="desc"
+                        >
+                          {project.description}
+                        </Typography>
+                      </div>
+                    </CardContent>
+                    <CardActions className="flex justify-end">
+                        <Button
+                          size="small"
+                          color="primary"
+                          className="neumorphismButton font-semibold mr-4"
+                        >
+                          Ver Mais
+                        </Button>
+                    </CardActions>
+                  </Card>
 
-                  <p>{project.description.slice(0, 220).concat("...")} </p>
-                </Card>
-
-                <Modal
-                  project={project}
-                  isOpen={modalOpen === project._id}
-                  close={closeModal}
-                />
-              </>
-            );
-          })}
+                  <Modal
+                    project={project}
+                    isOpen={modalOpen === project._id}
+                    close={closeModal}
+                  />
+                </>
+              );
+            })}
+        </div>
       </ProjectsContainer>
     </Container>
   );

@@ -38,31 +38,6 @@ export interface Project {
 
 export function Main() {
   const [modalOpen, setModalOpen] = useState("none");
-  const [periods, setPeriods] = useState<Periods[] | null>([
-    {
-      _id: "1",
-      title: "1 periodo",
-      description: "primeiro periodo é mto foda",
-      projects: [
-        {
-          _id: "2",
-          image:
-            "http://pm1.narvii.com/6434/7a2cb5fc86df1db37db549422128c66186059808_00.jpg",
-          title: "projeto 1 mto foda",
-          description: "projeto 1 é um pikachu mto brabo",
-          participants: "eu, eu e eu tbm",
-          github: "https://github.com/JoaoCardoso00/NextFire-App",
-          video: "https://youtu.be/LpnktMeDlf0",
-        },
-      ],
-    },
-  ]);
-
-  useEffect(() => {
-    api.get("/periods").then(({ data }) => {
-      setPeriods(data);
-    });
-  }, []);
 
   function getTimeRemaining() {
     const endtime = "2022-05-30T23:59:59Z";

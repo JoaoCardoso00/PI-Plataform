@@ -64,15 +64,20 @@ export const ProjectsContainer = styled.div`
 
     border-radius: 5px;
 
+    .container {
+        width: 90%;
+        height: 90vh;
+    }
+
 `
 
 export const Card = styled.div`
     background-color: var(--title-font);
-    width: 33%;
+    width: 35%;
     height: 12rem;
     min-height: 5rem;
 
-    h1 {
+    h1, p {
         color: var(--text-secondary);
     }
 `

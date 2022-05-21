@@ -1,13 +1,10 @@
 import mongoose from 'mongoose';
-import { ProjectInterface } from '../Interfaces/ProjectIntrerface';
+import { ProjectInterface } from '../Interfaces/ProjectInterface';
 
 const ProjectSchema = new mongoose.Schema<ProjectInterface>({
   period_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Period'
-  },
-  image: {
-    type: String,
   },
   title: {
     type: String,

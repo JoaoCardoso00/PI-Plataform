@@ -1,4 +1,4 @@
-import { ProjectInterface } from './../models/Interfaces/ProjectIntrerface';
+import { ProjectInterface } from '../models/Interfaces/ProjectInterface';
 import Vote from '../models/Schemas/Vote';
 import Project from '../models/Schemas/Project';
 import { isAfter, parseISO } from 'date-fns';
@@ -102,11 +102,11 @@ class VoteController {
     const parsedDate = parseISO(date);
     const nowDate = new Date();
 
-    // if (isAfter(nowDate, parsedDate)) {
-    //   return res.status(401).json({
-    //     message: 'O tempo de votação já acabou!'
-    //   })
-    // }
+    if (isAfter(nowDate, parsedDate)) {
+      return res.status(401).json({
+        message: 'O tempo de votação já acabou!'
+      })
+    }
 
     try {
       const voting = await Vote.create({
