@@ -12,7 +12,7 @@ export const NavbarContainer = styled.nav`
   height: 54.391px;
 
   width: 100%;
-  background: #004b23;
+  background: var(--background);
 
   padding: 2rem 5rem 0rem 5rem;
 
@@ -87,7 +87,7 @@ export const Menu = styled.div<MenuProps>`
     height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     transition: max-height 0.3s ease-in;
 
-    background: #004b23;
+    background: var(--background);
   }
 `;
 

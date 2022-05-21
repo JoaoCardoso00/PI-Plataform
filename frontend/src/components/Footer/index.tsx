@@ -1,6 +1,6 @@
 import { FooterContainer, Copyright, SocialMedia } from "./styles";
 
-import Logo from "../../assets/Logo base.png";
+import Logo from "../../assets/Logo_base.png";
 import logoInstagram from "../../assets/logoInstagram.svg"
 import logoFacebook from "../../assets/logoFacebook.svg"
 import logoYoutube from "../../assets/logoYoutube.svg"

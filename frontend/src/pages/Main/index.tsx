@@ -4,15 +4,13 @@ import {
   Container,
   IntroductionContent,
   LeftHome,
-  Period,
-  Cards,
-  Card,
   IntroductionContentContainer,
   AboutContent,
   AboutLeft,
   AboutRight,
 } from "./styles";
-import Modal from "../../components/Modal";
+
+import { ProjectSection } from '../../components/Projects'
 
 import photoHomePage from "../../assets/photoHomePage.svg";
 import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
@@ -21,6 +19,7 @@ import dividerArrow from "../../assets/dividerArrow.svg";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { api } from "../../services/api";
+import { Periods } from "../../@types"
 
 import { Link, Element } from "react-scroll";
 
@@ -35,12 +34,6 @@ export interface Project {
   video: string;
 }
 
-export interface Periods {
-  _id: string;
-  title: string;
-  description: string;
-  projects: Array<Project>;
-}
 
 export function Main() {
   const [modalOpen, setModalOpen] = useState("none");
@@ -58,7 +51,6 @@ export function Main() {
           description: "projeto 1 é um pikachu mto brabo",
           participants: "eu, eu e eu tbm",
           github: "https://github.com/JoaoCardoso00/NextFire-App",
-          trello: "https://trello.com/pt-BR",
           video: "https://youtu.be/LpnktMeDlf0",
         },
       ],
@@ -72,27 +64,13 @@ export function Main() {
   }, []);
 
   function getTimeRemaining() {
-    const endtime = "2021-07-20T02:59:59Z";
+    const endtime = "2022-05-30T23:59:59Z";
     const total = Date.parse(endtime) - Date.parse(new Date().toISOString());
     const minutes = Math.floor((total / 1000 / 60) % 60);
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
     const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
     return <p className="vote-timer">{days} Dias</p>;
-  }
-
-  function openModal(_id: string) {
-    // api.post(`/projects/click/${_id}`);
-
-    setModalOpen(_id);
-
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    setModalOpen("none");
-
-    document.body.style.overflow = "unset";
   }
 
   return (
@@ -160,39 +138,8 @@ export function Main() {
           <img src={dividerArrow} alt="" />
           <Element name="periods"></Element>
         </AboutContent>
-        {periods &&
-          periods.map((period) => (
-            <Period id={period._id} key={period._id}>
-              <h3>{period.title}</h3>
-              <p>{period.description}</p>
-
-              <Cards>
-                {period.projects.map((project) => (
-                  <>
-                    <Card onClick={() => openModal(project._id)}>
-                      <header>
-                        {project.image ? (
-                          <img src={project.image} alt={project.title} />
-                        ) : (
-                          <></>
-                        )}
-                        <h1>{project.title}</h1>
-                      </header>
-
-                      <p>{project.description.slice(0, 220).concat("...")} </p>
-                    </Card>
-
-                    <Modal
-                      project={project}
-                      isOpen={modalOpen === project._id}
-                      close={closeModal}
-                    />
-                  </>
-                ))}
-              </Cards>
-            </Period>
-          ))}
-
+        
+        <ProjectSection/>
         <Footer />
       </main>
     </Container>

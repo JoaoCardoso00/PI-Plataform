@@ -21,18 +21,14 @@ const ProjectSchema = new mongoose.Schema<ProjectInterface>({
     type: Number,
     default: 0,
   },
-  // participants: {
-  //   type: String,
-  //   required: true,
-  // },
+  participants: {
+    type: String,
+    required: true,
+  },
   github: {
     type: String,
     required: true,
   },
-  // trello: {
-  //   type: String,
-  //   required: true,
-  // },
   video: {
     type: String,
     required: true,

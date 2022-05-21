@@ -8,6 +8,7 @@ export const FooterContainer = styled.footer`
   padding: 0 122px 0 108px;
 
   min-height: 268px;
+  max-height: 100%;
 
   background: var(--background);
 

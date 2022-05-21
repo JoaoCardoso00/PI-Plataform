@@ -41,7 +41,7 @@ export const IntroductionContent = styled.div`
   min-height: calc(100vh - 54px);
   align-items: center;
   justify-content: center;
-  background-color: #004b23;
+  background-color: var(--background);
   flex-wrap: wrap;
 `;
 
