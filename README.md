@@ -12,7 +12,7 @@ Plataforma para a votação dos projetos da computação amostra do [CESUPA](Ces
 
 ## Rodando a aplicação
 
-Front End:
+## Front End:
   
   <code>npm run dev</code> : incia o ambiente de desenvolvimento
 
@@ -20,7 +20,56 @@ Front End:
   
   npm run build gera a pasta dist com o arquivo index.html e a pasta assets com o bundle do javascript e assets usados no site
   
+## Back End: 
 
+Requirements: 
+
+MongoDB
+Yarn or NPM
+NodeJs
+
+## MongoDB
+
+To install it without you will have to acess MongoDB(https://www.mongodb.com/docs/guides/server/install/), follow the instructions till the end.
+
+To install with docker, run the command: 
+
+docker run --name some-mongo -d mongo:tag
+
+After the installations is completed, create a database named (Nome do banco) with the GUI of your, recommended:
+MongoDB Compass(https://www.mongodb.com/try/download/compass)
+
+## Cloning and running API
+
+After cloning the repository, navigate to the backend folder and run the following command on terminal to install dependencies
+
+npm 
+or
+yarn
+
+now run the application to connect to the database.
+
+npm run dev
+or
+yarn dev
+
+After connecting, the database and tables may not appear because they still do not have saved data. But the database is connected.
+
+## Insomnia
+
+For testing, the JSON file for Insomnia(https://insomnia.rest/download) is available on Notion(URL) for download, in -backend docs-, import the file on your Insomnia to visualize the routes.
+
+## Routes Requiresments
+
+To visualize the requirements for each route, access it's -controller file-
+
+## Automated Testing 
+
+The API have automated testing in all it's services, to run the tests enter the following command on terminal:
+
+npm run test
+or
+yarn test
 
 
 
