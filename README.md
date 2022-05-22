@@ -34,7 +34,7 @@ To install it without you will have to acess MongoDB(https://www.mongodb.com/doc
 
 To install with docker, run the command: 
 
-docker run --name some-mongo -d mongo:tag
+<code>docker run --name some-mongo -d mongo:tag</code>
 
 After the installations is completed, create a database named (Nome do banco) with the GUI of your, recommended:
 MongoDB Compass(https://www.mongodb.com/try/download/compass)
@@ -49,9 +49,9 @@ yarn
 
 now run the application to connect to the database.
 
-npm run dev
+<code>npm run dev</code>
 or
-yarn dev
+<code>yarn dev</code>
 
 After connecting, the database and tables may not appear because they still do not have saved data. But the database is connected.
 
@@ -67,9 +67,9 @@ To visualize the requirements for each route, access it's -controller file-
 
 The API have automated testing in all it's services, to run the tests enter the following command on terminal:
 
-npm run test
+<code>npm run test</code>
 or
-yarn test
+<code>yarn test</code>
 
 
 
