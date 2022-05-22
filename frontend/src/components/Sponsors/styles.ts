@@ -6,6 +6,7 @@ export const SponsorsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;

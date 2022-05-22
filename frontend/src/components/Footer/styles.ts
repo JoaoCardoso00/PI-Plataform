@@ -22,6 +22,11 @@ export const Copyright = styled.div`
   flex-direction: column;
   align-items: center;
 
+  a{
+    text-decoration: none;
+    color: var(----title-font);
+  }
+
   p {
     font-size: 0.8rem;
     color: var(--text-secondary);
