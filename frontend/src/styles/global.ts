@@ -2,11 +2,11 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     :root {
-        --background: #004b23;
+        --background: #1647A6;
         --text-font: #eddea4;
-        --title-font: #fff;
+        --title-font: #0F491b;
         --button: #48C4EA;
-        --text-secondary: #0F241D;
+        --text-secondary: #fff;
     }
 
     * {
@@ -31,7 +31,12 @@ export default createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         font-weight: 400;
     }
-    h1, h2, h3, h4, h5, h6, strong {
+    h1 {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: var(--text-secondary);
+        font-weight: 600;
+    }
+    h2, h3, h4, h5, h6, strong{
         font-family: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         color: var(--title-font);
         font-weight: 600;

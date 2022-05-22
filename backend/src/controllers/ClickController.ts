@@ -1,4 +1,4 @@
-import { ProjectInterface } from './../models/Interfaces/ProjectIntrerface';
+import { ProjectInterface } from '../models/Interfaces/ProjectInterface'
 import Project from '../models/Schemas/Project'
 import {Request, Response} from 'express'
 

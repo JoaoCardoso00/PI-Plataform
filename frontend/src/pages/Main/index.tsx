@@ -1,29 +1,20 @@
-import { useState, useEffect } from "react";
-
 import {
   Container,
   IntroductionContent,
   LeftHome,
-  Period,
-  Cards,
-  Card,
   IntroductionContentContainer,
-  AboutContent,
-  AboutLeft,
-  AboutRight,
 } from "./styles";
-import Modal from "../../components/Modal";
+
+import { ProjectSection } from '../../components/Projects'
 
 import photoHomePage from "../../assets/photoHomePage.svg";
-import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
-import compAmostraGanhadores2 from "../../assets/compAmostraGanhadores2.svg";
-import dividerArrow from "../../assets/dividerArrow.svg";
+
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { api } from "../../services/api";
 import { Sponsors } from "../../components/Sponsors"; 
 
-import { Link, Element } from "react-scroll";
+import { Link } from "react-scroll";
+import AboutSection from "../../components/AboutSection";
 
 export interface Project {
   _id: string;
@@ -36,66 +27,8 @@ export interface Project {
   video: string;
 }
 
-export interface Periods {
-  _id: string;
-  title: string;
-  description: string;
-  projects: Array<Project>;
-}
 
 export function Main() {
-  const [modalOpen, setModalOpen] = useState("none");
-  const [periods, setPeriods] = useState<Periods[] | null>([
-    {
-      _id: "1",
-      title: "1 periodo",
-      description: "primeiro periodo é mto foda",
-      projects: [
-        {
-          _id: "2",
-          image:
-            "http://pm1.narvii.com/6434/7a2cb5fc86df1db37db549422128c66186059808_00.jpg",
-          title: "projeto 1 mto foda",
-          description: "projeto 1 é um pikachu mto brabo",
-          participants: "eu, eu e eu tbm",
-          github: "https://github.com/JoaoCardoso00/NextFire-App",
-          trello: "https://trello.com/pt-BR",
-          video: "https://youtu.be/LpnktMeDlf0",
-        },
-      ],
-    },
-  ]);
-
-  useEffect(() => {
-    api.get("/periods").then(({ data }) => {
-      setPeriods(data);
-    });
-  }, []);
-
-  function getTimeRemaining() {
-    const endtime = "2021-07-20T02:59:59Z";
-    const total = Date.parse(endtime) - Date.parse(new Date().toISOString());
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-
-    return <p className="vote-timer">{days} Dias</p>;
-  }
-
-  function openModal(_id: string) {
-    // api.post(`/projects/click/${_id}`);
-
-    setModalOpen(_id);
-
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeModal() {
-    setModalOpen("none");
-
-    document.body.style.overflow = "unset";
-  }
-
   return (
     <Container>
       <main>
@@ -122,77 +55,8 @@ export function Main() {
             <img src={photoHomePage} alt="Vista na ilha das onças" />
           </IntroductionContentContainer>
         </IntroductionContent>
-
-        <AboutContent>
-          <Element name="about"></Element>
-          <img src={dividerArrow} alt="" />
-          <h1>Sobre</h1>
-          <div>
-            <AboutLeft>
-              <p>
-                A Estimular alunos do CESUPA ao desenvolvimento de novas
-                tecnologias e soluções inovadoras, incentivando o
-                desenvolvimento do pensar tecnológico, da criatividade e da
-                economia do Estado do Pará. Promover o inter-relacionamento
-                entre alunos e empresas de tecnologia do Estado, proporcionando
-                panorama favorável a troca de experiências de mercado e soluções
-                provindas do conhecimento acadêmico.
-                <br />
-                <br />A Computação Amostra será realizada no Centro
-                Universitário do Estado do Pará (CESUPA), no período de 24 a 27
-                de maio de 2022. O evento é iniciativa dos Cursos de Computação
-                do Centro Universitário do Pará - CESUPA, o qual objetiva
-                divulgar ações e produtos inovadores de TI, focando o
-                desenvolvimento científico e econômico da nossa região.
-              </p>
-              <iframe
-                src="https://www.youtube.com/embed/PuRcj4yvfso"
-                title="Video Da Computação Amostra"
-                allowFullScreen
-                height="300"
-              ></iframe>
-            </AboutLeft>
-            <AboutRight>
-              {/* Organizar as fotos  */}
-              <img src={compAmostraGanhadores1} alt="Foto dos Ganhadores" />
-              <img src={compAmostraGanhadores2} alt="Foto dos Ganhadores" />
-            </AboutRight>
-          </div>
-          <img src={dividerArrow} alt="" />
-          <Element name="periods"></Element>
-        </AboutContent>
-        {periods &&
-          periods.map((period) => (
-            <Period id={period._id} key={period._id}>
-              <h3>{period.title}</h3>
-              <p>{period.description}</p>
-
-              <Cards>
-                {period.projects.map((project) => (
-                  <>
-                    <Card onClick={() => openModal(project._id)}>
-                      <header>
-                        {project.image ? (
-                          <img src={project.image} alt={project.title} />
-                        ) : (
-                          <></>
-                        )}
-                        <h1>{project.title}</h1>
-                      </header>
-
-                      <p>{project.description.slice(0, 220).concat("...")} </p>
-                    </Card>
-
-                    <Modal
-                      project={project}
-                      isOpen={modalOpen === project._id}
-                      close={closeModal}
-                    />
-                  </>
-                ))}
-              </Cards>
-            </Period>
-          ))}
+        <AboutSection/>
+        <ProjectSection/>
         <Sponsors />
         <Footer />
       </main>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavbarContainer, Logo, Hamburger, Menu, Close } from "./styles";
 
-import CompAmostraLogo from "../../assets/Logo base.png";
+import CompAmostraLogo from "../../assets/Logo_base.png";
 import { Link, Element } from "react-scroll";
 
 export function Navbar() {

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { darken } from 'polished';
+import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.div`
   display: flex;
@@ -29,6 +29,7 @@ export const Container = styled.div`
     h2 {
       font-weight: 600;
       margin-top: 15px;
+      color: #fefefe;
     }
   }
 `;
@@ -62,7 +63,7 @@ export const Projects = styled.div`
     }
 
     &:hover {
-      background-color: ${darken(0.05, '#fefefe')};
+      background-color: ${darken(0.05, "#fefefe")};
     }
 
     & {
@@ -88,8 +89,9 @@ export const AuthBox = styled.div`
   }
 
   h2 {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    color: black;
   }
 
   span {
@@ -106,7 +108,7 @@ export const AuthBox = styled.div`
       width: 100%;
     }
 
-    button  {
+    button {
       background-color: #fe7940;
       border: 0;
       padding: 20px;

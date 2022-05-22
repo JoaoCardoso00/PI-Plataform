@@ -5,16 +5,12 @@ import { Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
 
 interface ProjectVotesInterface {
+  _id: ObjectId;
+  title: string;
+  views: number;
+  period_id: ObjectId;
   totalVotes: number;
-  uniqueVotes: Number;
-  _id: {
-    _id: ObjectId;
-    title: String;
-    times_clicked: Number;
-    period_id: ObjectId;
-  }
-  total: Number;
-  unique: String[];
+  uniqueVotes: number;
 }
 
 class VoteController {
@@ -39,15 +35,15 @@ class VoteController {
       },
     );
 
-    const projectVotes = populated.map((query) => {
+    const projectVotes = populated.map((query): ProjectVotesInterface | null => {
       if (query._id !== null) {
         return {
-          _id: query._id._id,
-          title: query._id.title,
-          views: query._id.times_clicked,
-          period_id: query._id.period_id,
-          totalVotes: query.total,
-          uniqueVotes: query.unique.length,
+          _id: query._id!,
+          title: query.title,
+          views: query.times_clicked,
+          period_id: query.period_id,
+          totalVotes: query.total!,
+          uniqueVotes: query.unique?.length!,
         };
       }
 
@@ -55,11 +51,11 @@ class VoteController {
     }).filter((element) => element !== null);
 
     const allVotesCount = projectVotes.reduce(
-      (acc, val) => acc + val.totalVotes,
+      (acc: number, val) => acc + val?.totalVotes!,
       0,
     );
     const uniqueVotesCount = projectVotes.reduce(
-      (acc: Number, val) => acc + val.uniqueVotes,
+      (acc: number, val) => acc + val?.uniqueVotes!,
       0,
     );
 
@@ -70,7 +66,7 @@ class VoteController {
         `${filter}Votes`
         ;
 
-      if (a[filterType] > b[filterType]) {
+      if (a![filterType] > b![filterType]) {
         return -1;
       }
 
@@ -101,7 +97,7 @@ class VoteController {
   async store(req: Request, res: Response) {
     const { projectId, email } = req.body;
 
-    const date = '2020-07-19 20:59:59';
+    const date = '2022-05-30 23:59:59';
     const parsedDate = parseISO(date);
     const nowDate = new Date();
 

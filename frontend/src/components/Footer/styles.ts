@@ -8,6 +8,7 @@ export const FooterContainer = styled.footer`
   padding: 0 122px 0 108px;
 
   min-height: 268px;
+  max-height: 100%;
 
   background: var(--background);
 
@@ -21,9 +22,14 @@ export const Copyright = styled.div`
   flex-direction: column;
   align-items: center;
 
+  a{
+    text-decoration: none;
+    color: var(----title-font);
+  }
+
   p {
     font-size: 0.8rem;
-    color: var(--title-font);
+    color: var(--text-secondary);
     text-align: left;
   }
 
@@ -33,7 +39,7 @@ export const Copyright = styled.div`
     justify-content: center;
     flex-wrap: wrap;
 
-    color: var(--title-font);
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 2rem;
     img {

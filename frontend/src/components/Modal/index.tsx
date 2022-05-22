@@ -7,8 +7,9 @@ import { Container, Votebox } from "./styles";
 
 import { api } from "../../services/api";
 
-import { Project } from "../../pages/Main/index";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Project } from "../../@types";
+import githubLogo from "../../assets/github.png";
 
 interface ModalProps {
   project: Project;
@@ -53,15 +54,12 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
     }
   }
 
-  function validateRecaptcha() {
-    setIsValidated(true);
-  }
-
   return (
     <>
       <ReactModal
         isOpen={isOpen}
         className="modal"
+        onRequestClose={close}
         overlayClassName="background"
       >
         <Container>
@@ -72,11 +70,16 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
               <></>
             )}
             <h1>{project.title}</h1>
+            
+            <br />
+            <p>{project.participants}</p>
           </header>
-
+          <button>
+              <a href={project.github}>
+                <img src={githubLogo} alt="github" width={50} />
+              </a>
+            </button>
           <p>{project.description}</p>
-
-          <a href={project.github}>{project.github}</a>
 
           <div>
             <iframe
@@ -91,7 +94,9 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
               <p>Insira o seu email* para realizar a votação desse projeto</p>
               <ReCAPTCHA
                 sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
-                onChange={validateRecaptcha}
+                onChange={() => {
+                  setIsValidated(true);
+                }}
               />
               <form onSubmit={handleSubmit}>
                 <input
@@ -109,7 +114,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
             </Votebox>
           </div>
 
-          <button type="button" onClick={close}>
+          <button className="close" type="button" onClick={close}>
             X
           </button>
         </Container>
