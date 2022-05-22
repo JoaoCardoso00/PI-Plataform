@@ -7,7 +7,8 @@ Plataforma para a votação dos projetos da computação amostra do [CESUPA](Ces
 ## Tecnologias Usadas :computer:
 <code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" title = "Figma"/></code> 
 <code><img width="40px" src="https://seeklogo.com/images/V/vite-logo-BFD4283991-seeklogo.com.png" title = "Vite"/></code> 
-<code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg" title = "Yarn"/></code> 
+<code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/yarn/yarn-original.svg" title = "Yarn"/></code>
+<code><img width="40px" src="https://d33wubrfki0l68.cloudfront.net/aad219b6c931cebb53121dcda794f6180d9e4397/86983/pt/assets/images/pnpm-standard-79c9dbb2e99b8525ae55174580061e1b.svg" title = "Pnpm"/></code> 
 <code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" title = "Npm"/></code> 
 <code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" title = "React"/></code> 
 <code><img width="40px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" title = "Typescript"/></code>
