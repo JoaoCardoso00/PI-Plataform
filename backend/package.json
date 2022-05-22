@@ -1,11 +1,11 @@
 {
-  "name": "backend-pi",
-  "type": "module",
+  "name": "projeto-integrado",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "start": "node --experimental-specifier-resolution=node dist/server.js"
   },
   "devDependencies": {
