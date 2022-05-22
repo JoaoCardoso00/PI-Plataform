@@ -1,4 +1,3 @@
-import { ProjectInterface } from '../models/Interfaces/ProjectInterface';
 import Vote from '../models/Schemas/Vote';
 import Project from '../models/Schemas/Project';
 import { isAfter, parseISO } from 'date-fns';

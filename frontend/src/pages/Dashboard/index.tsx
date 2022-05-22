@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FaTable } from "react-icons/fa";
 
 import { api } from "../../services/api";
@@ -19,10 +19,7 @@ export function Dashboard() {
   const [isAuth, setIsAuth] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [projects, setProjects] = useState([
-    { _id: "awda", title: "projeto1", totalVotes: 5, uniqueVotes: 3, views: 8 },
-    { _id: "awda", title: "projeto2", totalVotes: 3, uniqueVotes: 1, views: 8 },
-  ] as ProjectVotes[]);
+  const [projects, setProjects] = useState< ProjectVotes[]>([]);
   const [filter, setFilter] = useState("total");
 
   const handleAuthSubmit = useCallback(
@@ -30,16 +27,16 @@ export function Dashboard() {
       e.preventDefault();
 
       try {
-        const response = await api.get(`/votes?filter=${filter}`, {
+        const {data} = await api.get(`/votes?filter=${filter}`, {
           headers: {
             "X-API-KEY": authKey,
           },
         });
 
         setErrorMessage("");
-        setProjects(response.data.projects);
+        setProjects(data.projects);
         setIsAuth(true);
-      } catch (error) {
+      } catch (error) { 
         setErrorMessage("Chave de acesso invalida");
       }
     },
@@ -57,9 +54,21 @@ export function Dashboard() {
       });
 
       setProjects(response.data.projects);
+
+      console.log(projects);
+      
     },
     [authKey]
   );
+
+  useEffect(() => {
+    api.get(`/votes?filter=total`, {
+        headers: {
+          "X-API-KEY": authKey,
+        },
+      }).then(({data}) => setProjects(data));
+  }, [])
+  
 
   const getProjectVotesTable = useCallback(
     async (id: string | undefined, title: string | undefined) => {
@@ -86,7 +95,7 @@ export function Dashboard() {
       {isAuth ? (
         <>
           <header>
-            <h1>Resultados SoftAmostra 2020</h1>
+            <h1>Resultados Computação Amostra 2020</h1>
 
             <p>
               Visualização de todos os projetos presentes na SoftAmostra 2020.
@@ -102,8 +111,8 @@ export function Dashboard() {
                 <input
                   type="radio"
                   value="total"
-                  checked={filter === "total"}
-                  onChange={() => {}}
+                  name="radio"
+                  onChange={() => {filter === "total"}}
                 />
                 Votos totais
               </label>
@@ -115,8 +124,8 @@ export function Dashboard() {
                 <input
                   type="radio"
                   value="unique"
-                  checked={filter === "unique"}
-                  onChange={() => {}}
+                  name="radio"
+                  onChange={() => {filter === "unique"}}
                 />
                 Votos únicos
               </label>
@@ -137,13 +146,13 @@ export function Dashboard() {
                 id="table-project"
                 key={project._id}
                 onClick={() =>
-                  getProjectVotesTable(project?._id, project?.title)
+                  getProjectVotesTable(project._id, project.title)
                 }
               >
-                <p>{project.title}</p>
-                <p>{project.totalVotes.toString()}</p>
-                <p>{project.uniqueVotes.toString()}</p>
-                <p>{project.views.toString()}</p>
+                <p>{project._id.title}</p>
+                <p>{project.totalVotes}</p>
+                <p>{project.uniqueVotes}</p>
+                <p>{project._id.times_clicked}</p>
                 <p>
                   <FaTable size={25} color="#000" />
                 </p>

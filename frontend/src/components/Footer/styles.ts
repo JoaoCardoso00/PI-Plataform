@@ -24,7 +24,7 @@ export const Copyright = styled.div`
 
   p {
     font-size: 0.8rem;
-    color: var(--title-font);
+    color: var(--text-secondary);
     text-align: left;
   }
 
@@ -34,7 +34,7 @@ export const Copyright = styled.div`
     justify-content: center;
     flex-wrap: wrap;
 
-    color: var(--title-font);
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 2rem;
     img {

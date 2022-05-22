@@ -27,42 +27,44 @@ class ResultController {
       },
     );
 
-    const projectTitle = populated[0].project_id.title;
-    const voteEmails = populated.map(vote => {
-      return vote.email;
-    });
+    console.log(populated);
+    
+  //   const projectTitle = populated[0].title;
+  //   const voteEmails = populated.map(vote => {
+  //     return vote.email;
+  //   });
 
-    let result = {};
-    voteEmails.forEach(x => {
-      result[x] = (result[x] || 0) + 1;
-    });
+  //   let result = {};
+  //   voteEmails.forEach(x => {
+  //     result[x] = (result[x] || 0) + 1;
+  //   });
 
-    const emailCounter = [];
-    for (let i = 0; i < Object.keys(result).length; i += 1) {
-      const objEmail = Object.keys(result)[i]
+  //   const emailCounter = [];
+  //   for (let i = 0; i < Object.keys(result).length; i += 1) {
+  //     const objEmail = Object.keys(result)[i]
 
-     emailCounter.push({
-        email: objEmail,
-        counter: result[objEmail]
-      })
-    }
+  //    emailCounter.push({
+  //       email: objEmail,
+  //       counter: result[objEmail]
+  //     })
+  //   }
 
-    const workbook = new Workbook();
-    const sheet = workbook.addWorksheet(projectTitle);
+  //   const workbook = new Workbook();
+  //   const sheet = workbook.addWorksheet(projectTitle);
 
-    sheet.columns = [
-      { header: 'Email', key: 'email', width: 32 },
-      { header: 'Qtde. votos', key: 'amount', width: 10 },
-    ]
+  //   sheet.columns = [
+  //     { header: 'Email', key: 'email', width: 32 },
+  //     { header: 'Qtde. votos', key: 'amount', width: 10 },
+  //   ]
 
-    emailCounter.forEach(i => {
-      sheet.addRow({ email: i.email, amount: i.counter });
-    })
+  //   emailCounter.forEach(i => {
+  //     sheet.addRow({ email: i.email, amount: i.counter });
+  //   })
 
-    const tempFilePath = tempfile('.xlsx');
-    await workbook.xlsx.writeFile(tempFilePath, { filename: projectTitle });
+  //   const tempFilePath = tempfile('.xlsx');
+  //   await workbook.xlsx.writeFile(tempFilePath, { filename: projectTitle });
 
-    return res.sendFile(tempFilePath);
+  //   return res.sendFile(tempFilePath);
   }
 }
 

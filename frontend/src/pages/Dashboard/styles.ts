@@ -29,6 +29,7 @@ export const Container = styled.div`
     h2 {
       font-weight: 600;
       margin-top: 15px;
+      color: #fefefe;
     }
   }
 `;

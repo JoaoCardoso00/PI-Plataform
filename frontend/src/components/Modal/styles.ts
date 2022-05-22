@@ -6,9 +6,11 @@ export const Container = styled.div`
   padding: 80px;
   overflow-y: auto;
 
+
   header {
     display: flex;
     align-items: center;
+    flex-direction: column;
 
     img {
       width: 120px;
@@ -17,12 +19,16 @@ export const Container = styled.div`
       border: 0;
     }
 
+    p {
+      font-size: 1rem;
+    }
+
     h1 {
       font-size: 50px;
       font-weight: 600;
+      color: var(--title-font);
     }
   }
-
   iframe {
     width: 600px;
     height: 300px;
@@ -39,7 +45,7 @@ export const Container = styled.div`
     }
   }
 
-  > button {
+  .close {
     position: absolute;
     top: -20px;
     right: -20px;
@@ -53,12 +59,22 @@ export const Container = styled.div`
     color: #fefefe;
   }
 
+  button {
+    background: none;
+    border: none;
+    outline: none;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
   @media (max-width: 1500px) {
     padding: 40px;
   }
 
   @media (max-height: 904px) {
-    > button {
+    .close {
       top: 0;
       right: 0;
       color: #fe7940;

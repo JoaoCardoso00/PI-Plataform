@@ -17,15 +17,29 @@ import {
 export function ProjectSection() {
   const [projects, setProjects] = useState<Project[]>();
   const [modalOpen, setModalOpen] = useState<string>("none");
+  const [filter, setFilter] = useState<string>("");
 
   useEffect(() => {
     api.get("/projects").then(({ data }) => setProjects(data));
+    
   }, []);
 
-  const openCloseModal = async (_id: string) => {
-    await api.post(`/projects/click/${_id}`);
+  const filterProjects = async (filterParam: string) => {
+    const { data: all_projects } = await api.get("/projects");
     console.log(projects);
-    setModalOpen((state) => (state = modalOpen === "none" ? _id : "none"));
+
+    const filtered_projects = all_projects?.filter(
+      (element: Project) =>
+        element.description.toLowerCase().includes(filterParam.toLowerCase()) ||
+        element.title.toLowerCase().includes(filterParam.toLowerCase()) ||
+        element.participants.toLowerCase().includes(filterParam.toLowerCase())
+    );
+    setProjects((state) => (state = filtered_projects));
+  };
+
+  const openModal = async (_id: string) => {
+    await api.post(`/projects/click/${_id}`);
+    setModalOpen((state) => (state = _id));
 
     document.body.style.overflow = "hidden";
   };
@@ -41,11 +55,18 @@ export function ProjectSection() {
       <h1>Projetos</h1>
 
       <SearchContainer>
-        <input type="text" placeholder="Search Project" />
-        <button>
-          <img src={filterImg} alt="hambuguer" />
-        </button>
-        <button>
+        <input
+          type="text"
+          onChange={(e) => {
+            setFilter((state) => (state = e.target.value));
+          }}
+          placeholder="Search Project"
+        />
+        <button
+          onClick={async () => {
+            await filterProjects(filter);
+          }}
+        >
           <img src={lupaImg} alt="lupa" />
         </button>
       </SearchContainer>
@@ -53,46 +74,69 @@ export function ProjectSection() {
       <ProjectsContainer>
         <div className="container">
           {!projects && (
-            <Skeleton
-              sx={{ bgcolor: "white", opacity: 0.5 }}
-              variant="rectangular"
-              width={500}
-              height={300}
-            />
+            <>
+              <Skeleton
+                sx={{ bgcolor: "white", opacity: 0.5 }}
+                variant="rectangular"
+                width={500}
+                height={300}
+              />
+              <Skeleton
+                sx={{ bgcolor: "white", opacity: 0.5 }}
+                variant="rectangular"
+                width={500}
+                height={300}
+              />
+              <Skeleton
+                sx={{ bgcolor: "white", opacity: 0.5 }}
+                variant="rectangular"
+                width={500}
+                height={300}
+              />
+              <Skeleton
+                sx={{ bgcolor: "white", opacity: 0.5 }}
+                variant="rectangular"
+                width={500}
+                height={300}
+              />
+              <Skeleton
+                sx={{ bgcolor: "white", opacity: 0.5 }}
+                variant="rectangular"
+                width={500}
+                height={300}
+              />
+            </>
           )}
           {projects &&
             projects.map((project: Project) => {
+              
+              setTimeout(() => {}, 1000)
+
               return (
                 <>
-                  <Card className="neumorphismCard border-none shadow-black aspect-video min-h-fit flex flex-col justify-around m-2 sm:h-1/4 sm:w-full md:w-1/4 lg:w-72">
-                    <CardContent className="flex justify-between">
-                      <div>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="h2"
-                          className="title"
-                        >
-                          {project.title}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color="textSecondary"
-                          component="p"
-                          className="desc"
-                        >
-                          {project.description}
-                        </Typography>
-                      </div>
+                  <Card className="card">
+                    <CardContent className="cardContent">
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {project.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {project.description.slice(0, 66) + "..."}
+                      </Typography>
                     </CardContent>
-                    <CardActions className="flex justify-end">
-                        <Button
-                          size="small"
-                          color="primary"
-                          className="neumorphismButton font-semibold mr-4"
-                        >
-                          Ver Mais
-                        </Button>
+                    <CardActions>
+                      <Button
+                        size="small"
+                        color="primary"
+                        onClick={async () => {
+                          await openModal(project._id);
+                        }}
+                      >
+                        Ver Mais
+                      </Button>
                     </CardActions>
                   </Card>
 

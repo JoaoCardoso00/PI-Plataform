@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SponsorsContainer = styled.div`
+  margin-top: 2.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

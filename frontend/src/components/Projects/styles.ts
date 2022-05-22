@@ -53,31 +53,34 @@ export const ProjectsContainer = styled.div`
     max-width: calc(100% - 5rem);
     height: 80vh;
 
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: space-around;
+    overflow-y: auto;
 
     background-color: var(--text-font);
-
-    padding: 1.2rem;
 
     border-radius: 5px;
 
     .container {
-        width: 90%;
-        height: 90vh;
-    }
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.2rem;
+        gap: .5rem;
 
-`
+        .card {
+            min-width: 15rem;
+            width: 33%;
 
-export const Card = styled.div`
-    background-color: var(--title-font);
-    width: 35%;
-    height: 12rem;
-    min-height: 5rem;
+            @media (max-width: 1000px) {
+                & {
+                    width: 49%;
+                }
+            }
+            @media (max-width: 800px) {
+                & {
+                    width: 100%;
+                }
+            }
 
-    h1, p {
-        color: var(--text-secondary);
+        }
+
     }
 `
