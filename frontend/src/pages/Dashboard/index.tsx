@@ -4,7 +4,7 @@ import { FaTable } from "react-icons/fa";
 import { api } from "../../services/api";
 
 import { Container, Projects, AuthBox } from "./styles";
-import softImg from "../../assets/softamostra-curvas-03.svg";
+import CompImg from "../../assets/CompAmostra.png"
 
 interface ProjectVotes {
   _id?: string;
@@ -86,10 +86,10 @@ export function Dashboard() {
       {isAuth ? (
         <>
           <header>
-            <h1>Resultados SoftAmostra 2020</h1>
+            <h1>Resultados CompAmostra 2022</h1>
 
             <p>
-              Visualização de todos os projetos presentes na SoftAmostra 2020.
+              Visualização de todos os projetos presentes na CompAmostra 2022.
               Verifique e organize os projetos do jeito que for mais
               conveniente. Quando clicado em um projeto, você verá mais
               informações sobre os projetos, assim como todos os email únicos
@@ -153,7 +153,7 @@ export function Dashboard() {
         </>
       ) : (
         <AuthBox>
-          <img src={softImg} alt="SoftAmostra" />
+          <img src={CompImg} alt="SoftAmostra" />
           <h2>RESULTADOS</h2>
 
           <form onSubmit={handleAuthSubmit}>
