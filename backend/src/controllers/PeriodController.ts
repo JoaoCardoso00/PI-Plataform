@@ -3,6 +3,8 @@ import { Request, Response } from 'express'
 import { PeriodInterface } from '../models/Interfaces/PeriodInterface';
 
 class PeriodController {
+// @ts-ignore
+
   async index(req: Request, res: Response) {
     const periods = await Period.find({}).populate('projects');
 

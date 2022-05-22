@@ -3,6 +3,7 @@ import Period from '../models/Schemas/Period';
 import {Request, Response} from 'express';
 
 class ProjectController {
+// @ts-ignore
   async index(req: Request, res: Response) {
     const projects = await Project.find({});
 

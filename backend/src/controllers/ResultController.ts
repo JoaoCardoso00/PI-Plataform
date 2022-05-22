@@ -1,11 +1,15 @@
 import Vote from '../models/Schemas/Vote';
-import Project from '../models/Schemas/Project';
 import {Request, Response} from 'express';
-
+// @ts-ignore
+import Project from '../models/Schemas/Project';
+// @ts-ignore
 import { Workbook } from 'exceljs';
+// @ts-ignore
 import tempfile from 'tempfile';
 
 class ResultController {
+// @ts-ignore
+
   async show(req: Request, res: Response) {
     const { projectId } = req.params;
 

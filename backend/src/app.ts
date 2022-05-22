@@ -13,7 +13,7 @@ mongoose.connect(
 const allowedOrigins = [
   'http://localhost:3001',
   'http://localhost:3000',
-  'http://localhost:4040/',
+  'http://localhost:4173/',
   'https://pi.omnicesupa.com',
   'https://pi.omnicesupa.com/',
 ];

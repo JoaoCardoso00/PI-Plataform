@@ -5,7 +5,7 @@ import voteRouter from './vote';
 import projectRouter from './project';
 
 const router = express.Router()
-
+// @ts-ignore
 router.get('/', (req: Request, res: Response) => {
     res.status(200).json({
         title: "Projeto Integrado 2022",

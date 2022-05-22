@@ -65,11 +65,11 @@ class VoteController {
         '' :
         `${filter}Votes`
         ;
-
+// @ts-ignore
       if (a![filterType] > b![filterType]) {
         return -1;
       }
-
+// @ts-ignore
       if (a[filterType] < b[filterType]) {
         return 1;
       }
@@ -100,6 +100,12 @@ class VoteController {
     const date = '2022-05-30 23:59:59';
     const parsedDate = parseISO(date);
     const nowDate = new Date();
+
+    if (isAfter(nowDate, parseISO('2022-05-23 00:00:00'))) {
+      return res.status(401).json({
+        message: 'Votação ainda não começou'
+      })
+    }
 
     if (isAfter(nowDate, parsedDate)) {
       return res.status(401).json({
