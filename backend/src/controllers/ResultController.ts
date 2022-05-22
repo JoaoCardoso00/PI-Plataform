@@ -19,15 +19,15 @@ class ResultController {
       })
     }
 
-    const populated = await Project.populate(
-      votes,
-      {
-        path: 'project_id',
-        select: 'title',
-      },
-    );
+    // const populated = await Project.populate(
+    //   votes,
+    //   {
+    //     path: 'project_id',
+    //     select: 'title',
+    //   },
+    // );
 
-    console.log(populated);
+    // console.log(populated);
     
   //   const projectTitle = populated[0].title;
   //   const voteEmails = populated.map(vote => {

@@ -1,4 +1,3 @@
-import { ProjectInterface } from '../models/Interfaces/ProjectInterface';
 import Project from '../models/Schemas/Project';
 import Period from '../models/Schemas/Period';
 import {Request, Response} from 'express';
@@ -49,9 +48,9 @@ class ProjectController {
 
   async update(req: Request, res: Response) {
     const { id } = req.params;
-    const { image, github, video } = req.body;
+    const { github, video } = req.body;
 
-    const project = await Project.findByIdAndUpdate({ _id: id }, { image, github, video });
+    const project = await Project.findByIdAndUpdate({ _id: id }, { github, video });
 
     return res.json(project);
   }

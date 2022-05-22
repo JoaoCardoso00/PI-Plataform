@@ -3,7 +3,6 @@ import express, { Request, Response } from 'express';
 import periodsRouter from './periods';
 import voteRouter from './vote';
 import projectRouter from './project';
-import client from '../lib/redis';
 
 const router = express.Router()
 
