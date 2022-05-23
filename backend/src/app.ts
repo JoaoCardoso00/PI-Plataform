@@ -14,6 +14,7 @@ const allowedOrigins = [
   'http://localhost:3001',
   'http://localhost:3000',
   'http://localhost:4173/',
+  'http://pi.omnicesupa.com',
   'https://pi.omnicesupa.com',
   'https://pi.omnicesupa.com/',
 ];
