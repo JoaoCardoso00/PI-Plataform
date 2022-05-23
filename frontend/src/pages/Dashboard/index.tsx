@@ -112,7 +112,7 @@ export function Dashboard() {
                   type="radio"
                   value="total"
                   name="radio"
-                  onChange={() => {filter === "total"}}
+                  onChange={() => {setFilter("total")}}
                 />
                 Votos totais
               </label>
@@ -125,7 +125,7 @@ export function Dashboard() {
                   type="radio"
                   value="unique"
                   name="radio"
-                  onChange={() => {filter === "unique"}}
+                  onChange={() => {setFilter("unique")}}
                 />
                 Votos únicos
               </label>
