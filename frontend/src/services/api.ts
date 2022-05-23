@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3001/v1",
+  baseURL: "https://backend-pi-plataform.herokuapp.com/v1",
 });

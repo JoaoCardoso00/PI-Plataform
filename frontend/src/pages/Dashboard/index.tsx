@@ -7,11 +7,11 @@ import { Container, Projects, AuthBox } from "./styles";
 import CompImg from "../../assets/CompAmostra.png"
 
 interface ProjectVotes {
-  _id?: string;
-  title: string;
-  totalVotes: Number;
-  uniqueVotes: Number;
-  views: Number;
+  _id: any;
+    title: string;
+    times_clicked: number;
+  totalVotes: number;
+  uniqueVotes: number;
 }
 
 export function Dashboard() {
