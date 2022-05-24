@@ -14,6 +14,18 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    body::-webkit-scrollbar {
+        width: 0.25rem;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: var(--text-secondary);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: var(--background);
+    }
     // font-size: 16px (Desktop)
     html {
         @media (max-width: 1080px) {

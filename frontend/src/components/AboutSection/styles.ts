@@ -80,9 +80,6 @@ export const AboutLeft = styled.div`
       }
     }
   }
-
-
-
 `;
 
 export const AboutRight = styled.div`
@@ -94,5 +91,17 @@ export const AboutRight = styled.div`
   img {
     min-width: 100%;
     max-width: 100%;
+  }
+
+  .secondPhoto {
+    position: relative;
+    left: 5rem;
+    bottom: 8rem;
+
+    @media only screen and (max-width: 1120px) {
+      left: 0;
+      bottom: 0;
+      margin-bottom: 2rem;
+    }
   }
 `;
