@@ -1,6 +1,5 @@
 import Vote from '../models/Schemas/Vote';
 import Project from '../models/Schemas/Project';
-import { parseISO } from 'date-fns';
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
 
@@ -96,9 +95,7 @@ class VoteController {
 
   async store(req: Request, res: Response) {
     const { projectId, email } = req.body;
-
-    const date = '2022-05-30 23:59:59';
-
+    
     try {
       const voting = await Vote.create({
         project_id: projectId,
