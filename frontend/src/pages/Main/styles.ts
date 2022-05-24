@@ -53,8 +53,13 @@ export const IntroductionContentContainer = styled.div`
   flex-wrap: wrap;
   margin-bottom: calc(54px + 2rem);
 
-  img {
-    max-width: 100%;
+  .carouselContainer {
+    max-width: 35%;
+
+    img {
+      max-height: 25rem;
+      width: 100%;
+    }
   }
 `;
 
@@ -124,8 +129,6 @@ export const LeftHome = styled.div`
     margin-top: 3rem;
   }
 `;
-
-
 
 export const Period = styled.div`
   min-height: 100vh;

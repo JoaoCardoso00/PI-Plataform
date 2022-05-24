@@ -7,6 +7,8 @@ import {
 
 import { ProjectSection } from "../../components/Projects";
 
+import benitas from "../../assets/benitas.png";
+import plantacao from "../../assets/plantacao.png";
 import photoHomePage from "../../assets/photoHomePage.svg";
 
 import { Navbar } from "../../components/Navbar";
@@ -15,6 +17,11 @@ import { Sponsors } from "../../components/Sponsors";
 
 import { Link } from "react-scroll";
 import AboutSection from "../../components/AboutSection";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export interface Project {
   _id: string;
@@ -56,7 +63,16 @@ export function Main() {
                 </Link>
               </div>
             </LeftHome>
-            <img src={photoHomePage} alt="Vista na ilha das onças" />
+            <div className="carouselContainer">
+              <Swiper>
+                <SwiperSlide>
+                  <img src={plantacao} alt="Vista na ilha das onças" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={benitas} alt="Vista na ilha das onças" />
+                </SwiperSlide>
+              </Swiper>
+            </div>
           </IntroductionContentContainer>
         </IntroductionContent>
         <AboutSection />

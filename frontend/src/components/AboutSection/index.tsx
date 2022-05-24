@@ -1,4 +1,3 @@
-import React from "react";
 import { AboutContent, AboutLeft, AboutRight } from "./styles";
 import dividerArrow from "../../assets/dividerArrow.svg";
 import compAmostraGanhadores1 from "../../assets/compAmostraGanhadores1.svg";
