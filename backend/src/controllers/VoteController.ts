@@ -101,18 +101,6 @@ class VoteController {
     const parsedDate = parseISO(date);
     const nowDate = new Date();
 
-    if (isAfter(nowDate, parseISO('2022-05-23 00:00:00'))) {
-      return res.status(401).json({
-        message: 'Votação ainda não começou'
-      })
-    }
-
-    if (isAfter(nowDate, parsedDate)) {
-      return res.status(401).json({
-        message: 'O tempo de votação já acabou!'
-      })
-    }
-
     try {
       const voting = await Vote.create({
         project_id: projectId,
