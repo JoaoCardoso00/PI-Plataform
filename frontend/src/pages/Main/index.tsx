@@ -5,13 +5,13 @@ import {
   IntroductionContentContainer,
 } from "./styles";
 
-import { ProjectSection } from '../../components/Projects'
+import { ProjectSection } from "../../components/Projects";
 
 import photoHomePage from "../../assets/photoHomePage.svg";
 
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { Sponsors } from "../../components/Sponsors"; 
+import { Sponsors } from "../../components/Sponsors";
 
 import { Link } from "react-scroll";
 import AboutSection from "../../components/AboutSection";
@@ -27,7 +27,6 @@ export interface Project {
   video: string;
 }
 
-
 export function Main() {
   return (
     <Container>
@@ -40,8 +39,14 @@ export function Main() {
               <h1>Amazon Hacking</h1>
               <p>
                 Universitários elaboram projeto sustentável para Ilha das Onças.
-                Amazon Hacking surgiu da união dos cursos de Ciência da Computação e Engenharia da Computação do Cesupa, e da parceria das empresas socialmente responsáveis e sustentáveis, como Paladar Amazônico, byAmazonian, Jambu Tecnologia e ONDRONE, e também da Associação das Empresas Paraenses de Software e TIC - ParaTIC e da organização não governamental Instituto Jovem Exportador.   
-             </p>
+                Amazon Hacking surgiu da união dos cursos de Ciência da
+                Computação e Engenharia da Computação do Cesupa, e da parceria
+                das empresas socialmente responsáveis e sustentáveis, como
+                Paladar Amazônico, byAmazonian, Jambu Tecnologia e ONDRONE, e
+                também da Associação das Empresas Paraenses de Software e TIC -
+                ParaTIC e da organização não governamental Instituto Jovem
+                Exportador.
+              </p>
               <div>
                 <Link to="periods" smooth={true}>
                   <button>Ver Projetos</button>
@@ -54,11 +59,11 @@ export function Main() {
             <img src={photoHomePage} alt="Vista na ilha das onças" />
           </IntroductionContentContainer>
         </IntroductionContent>
-        <AboutSection/>
-        <ProjectSection/>
+        <AboutSection />
+        <ProjectSection />
         <Sponsors />
-        <Footer />
       </main>
+      <Footer />
     </Container>
   );
 }

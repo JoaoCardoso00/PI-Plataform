@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   justify-content: space-between;
   padding: 0 122px 0 108px;
+  font-family: "Roboto", sans-serif;
 
   min-height: 268px;
   max-height: 100%;
@@ -22,7 +23,7 @@ export const Copyright = styled.div`
   flex-direction: column;
   align-items: center;
 
-  a{
+  a {
     text-decoration: none;
     color: var(----title-font);
   }
