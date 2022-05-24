@@ -11,7 +11,7 @@ export function Footer() {
       <Copyright>
         <div className="Logo">
           <img src={Logo} alt="Logo CompAmostra" />
-          <a href="https://www.cesupa.br/" target="_blank">CompAmostra</a>
+          <a href="https://www.cesupa.br/" target="_blank" rel="noreferrer">CompAmostra</a>
         </div>
         <p>
           ©2022 - Cesupa CompAmostra
@@ -19,15 +19,18 @@ export function Footer() {
         <p>
           Todos os direitos reservados.
         </p>
+        <p>
+          <a href="https://www.ryanolivr.dev/panelinha/">Feito com amor ♡</a>
+        </p>
       </Copyright>
       <SocialMedia>
-        <a href="https://www.instagram.com/cesupaonline/" target="_blank">
+        <a href="https://www.instagram.com/cesupaonline/" target="_blank" rel="noreferrer">
         <img src={logoInstagram} alt="Logo do Instagram" />
         </a>
-        <a href="https://www.facebook.com/CesupaOnline" target="_blank">
+        <a href="https://www.facebook.com/CesupaOnline" target="_blank" rel="noreferrer">
         <img src={logoFacebook} alt="Logo do Facebook" />
         </a>
-        <a href="https://www.youtube.com/c/CesupaOnline" target="_blank">
+        <a href="https://www.youtube.com/c/CesupaOnline" target="_blank" rel="noreferrer">
         <img src={logoYoutube} alt="Logo do Youtube" />
         </a>
       </SocialMedia>

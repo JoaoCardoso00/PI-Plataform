@@ -32,6 +32,15 @@ export const Copyright = styled.div`
     font-size: 0.8rem;
     color: var(--text-secondary);
     text-align: left;
+    a{
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+    &:hover a {
+      width: 100%;
+      color: red;
+      transition: all 0.2s ease-in;
+    }
   }
 
   div {
