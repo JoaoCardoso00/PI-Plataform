@@ -1,6 +1,6 @@
 import Vote from '../models/Schemas/Vote';
 import Project from '../models/Schemas/Project';
-import { isAfter, parseISO } from 'date-fns';
+import { parseISO } from 'date-fns';
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
 
@@ -98,8 +98,6 @@ class VoteController {
     const { projectId, email } = req.body;
 
     const date = '2022-05-30 23:59:59';
-    const parsedDate = parseISO(date);
-    const nowDate = new Date();
 
     try {
       const voting = await Vote.create({
