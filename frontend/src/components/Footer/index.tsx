@@ -20,7 +20,7 @@ export function Footer() {
           Todos os direitos reservados.
         </p>
         <p>
-          <a href="https://www.ryanolivr.dev/panelinha/">Feito com amor ♡</a>
+          <a href="https://www.ryanolivr.dev/panelinha/" target="_blank" rel="noreferrer">Feito com amor ♡</a>
         </p>
       </Copyright>
       <SocialMedia>
