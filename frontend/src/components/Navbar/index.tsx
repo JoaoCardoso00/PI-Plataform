@@ -2,10 +2,14 @@ import { useState } from "react";
 import { NavbarContainer, Logo, Hamburger, Menu, Close } from "./styles";
 
 import CompAmostraLogo from "../../assets/Logo_base.png";
-import { Link, Element } from "react-scroll";
+import { Link } from "react-scroll";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  function changeNavBarState() {
+    setIsOpen((curr) => !curr);
+  }
 
   return (
     <NavbarContainer>
@@ -14,12 +18,7 @@ export function Navbar() {
         CompAmostra
       </Logo>
 
-      <Hamburger
-        isOpen={isOpen}
-        onClick={() => {
-          setIsOpen((curr) => !curr);
-        }}
-      >
+      <Hamburger isOpen={isOpen} onClick={changeNavBarState}>
         <span />
         <span />
         <span />
@@ -35,15 +34,15 @@ export function Navbar() {
       </Close>
 
       <Menu isOpen={isOpen}>
-        <a href="#">
+        <a href="">
           Início
           <span />
         </a>
-        <Link to="about" smooth={true}>
+        <Link to="about" smooth={true} onClick={changeNavBarState}>
           Sobre
           <span />
         </Link>
-        <Link to="periods" smooth={true}>
+        <Link to="periods" smooth={true} onClick={changeNavBarState}>
           Projetos
           <span />
         </Link>

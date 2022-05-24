@@ -84,7 +84,11 @@ export const Menu = styled.div<MenuProps>`
     justify-content: center;
 
     width: 100%;
-    height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
+    height: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+    position: ${({ isOpen }) => (isOpen ? "fixed" : "null")};
+    z-index: ${({ isOpen }) => (isOpen ? "999" : "null")};
+    top: ${({ isOpen }) => (isOpen ? "0" : "null")};
+    left: ${({ isOpen }) => (isOpen ? "0" : "null")};
     transition: max-height 0.3s ease-in;
 
     background: var(--background);
@@ -117,7 +121,7 @@ export const Hamburger = styled.div<MenuProps>`
 export const Close = styled.div<MenuProps>`
   position: absolute;
   right: 2rem;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
