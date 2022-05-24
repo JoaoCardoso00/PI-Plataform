@@ -11,6 +11,10 @@ export function Navbar() {
     setIsOpen((curr) => !curr);
   }
 
+  function closeNavBar() {
+    setIsOpen(false);
+  }
+
   return (
     <NavbarContainer>
       <Logo href="#">
@@ -38,11 +42,11 @@ export function Navbar() {
           Início
           <span />
         </a>
-        <Link to="about" smooth={true} onClick={changeNavBarState}>
+        <Link to="about" smooth={true} onClick={closeNavBar}>
           Sobre
           <span />
         </Link>
-        <Link to="periods" smooth={true} onClick={changeNavBarState}>
+        <Link to="periods" smooth={true} onClick={closeNavBar}>
           Projetos
           <span />
         </Link>
