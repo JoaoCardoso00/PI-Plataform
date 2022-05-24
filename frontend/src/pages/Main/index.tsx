@@ -38,14 +38,14 @@ export function Main() {
               <span>BOAS-VINDAS A COMPUTAÇÃO AMOSTRA 2022 👋 👋</span>
               <h1>Amazon Hacking</h1>
               <p>
-                Universitários elaboram projeto sustentável para Ilha das Onças.
-                Amazon Hacking surgiu da união dos cursos de Ciência da
-                Computação e Engenharia da Computação do Cesupa, e da parceria
-                das empresas socialmente responsáveis e sustentáveis, como
-                Paladar Amazônico, byAmazonian, Jambu Tecnologia e ONDRONE, e
-                também da Associação das Empresas Paraenses de Software e TIC -
-                ParaTIC e da organização não governamental Instituto Jovem
-                Exportador.
+                Universitários elaboram projetos sustentáveis para a Ilha das
+                Onças e sua comunidade ribeirinha. Amazon Hacking surgiu da
+                união dos cursos de Ciência da Computação e Engenharia da
+                Computação do Cesupa, da parceria das empresas socialmente
+                responsáveis e sustentáveis, como Paladar Amazônico,
+                byAmazonian, Jambu Tecnologia e OnDrone, e também da Associação
+                das Empresas Paraenses de Software e TIC - ParaTIC e da
+                organização não governamental Instituto Jovem Exportador.
               </p>
               <div>
                 <Link to="periods" smooth={true}>
