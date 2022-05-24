@@ -3,20 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100%;
   width: 100%;
-  padding: 80px;
+  padding: 2.5rem;
   overflow-y: auto;
-
-
+  overflow-x: hidden;
+  
   header {
     display: flex;
     align-items: center;
     flex-direction: column;
 
+
     img {
-      width: 120px;
-      height: 120px;
-      margin-right: 40px;
-      border: 0;
+      width: 3.125rem;
+      height: 3.125rem;
     }
 
     p {
@@ -24,7 +23,10 @@ export const Container = styled.div`
     }
 
     h1 {
-      font-size: 50px;
+      display: flex;
+      text-align: center;
+      gap: 0.5rem;
+      font-size: 3.125rem;
       font-weight: 600;
       color: var(--title-font);
     }
@@ -54,9 +56,13 @@ export const Container = styled.div`
     z-index: 999;
     border-radius: 50%;
     border: 0;
-    background-color: #fe7940;
+    background-color: var(--title-font);
     font-size: 30px;
     color: #fefefe;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
   }
 
   button {
@@ -71,6 +77,13 @@ export const Container = styled.div`
 
   @media (max-width: 1500px) {
     padding: 40px;
+    text-align: center;
+    .close {
+      top: 0;
+      right: 0;
+      color: black;
+      background-color: transparent;
+    }
   }
 
   @media (max-height: 904px) {
@@ -84,16 +97,11 @@ export const Container = styled.div`
 
   p {
     margin: 30px 0 20px 0;
-    font-size: 25px;
+    font-size: 1rem;
   }
 
   @media (max-width: 800px) {
     header {
-      img {
-        width: 80px;
-        height: 80px;
-      }
-
       h1 {
         font-size: 40px;
       }
@@ -101,6 +109,12 @@ export const Container = styled.div`
 
     p {
       font-size: 20px;
+    }
+    .close {
+      top: 0;
+      right: 0;
+      color: black;
+      background-color: transparent;
     }
   }
 
@@ -110,11 +124,11 @@ export const Container = styled.div`
   }
 
   span {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   > div {
-    margin-top: 40px;
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -141,7 +155,12 @@ export const Votebox = styled.div`
   background-color: #7380f3;
   color: #fefefe;
   width: 500px;
-  padding: 4rem 6rem;
+  padding: 2rem 3rem;
+  
+  div {
+    display: flex;
+    flex-direction: column;
+  }
 
   form {
     display: flex;
@@ -155,7 +174,7 @@ export const Votebox = styled.div`
     }
 
     button {
-      background-color: #fe7940;
+      background-color: var(--title-font);
       padding: 8px;
       border: 0;
       color: #fefefe;

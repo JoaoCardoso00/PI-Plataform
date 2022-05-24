@@ -69,17 +69,22 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
             ) : (
               <></>
             )}
-            <h1>{project.title}</h1>
-            
+            <h1>
+              <button>
+                <a href={project.github}>
+                  <img src={githubLogo} alt="github" width={10} />
+                </a>
+              </button>
+              {project.title}
+            </h1>
+
             <br />
             <p>{project.participants}</p>
           </header>
-          <button>
-              <a href={project.github}>
-                <img src={githubLogo} alt="github" width={50} />
-              </a>
-            </button>
-          <p>{project.description}</p>
+
+          <div>
+            <p>{project.description}</p>
+          </div>
 
           <div>
             <iframe
@@ -92,12 +97,14 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>
-              <ReCAPTCHA
-                sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
-                onChange={() => {
-                  setIsValidated(true);
-                }}
-              />
+              <div>
+                <ReCAPTCHA
+                  sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
+                  onChange={() => {
+                    setIsValidated(true);
+                  }}
+                />
+              </div>
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"

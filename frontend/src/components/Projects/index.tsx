@@ -114,7 +114,10 @@ export function ProjectSection() {
 
               return (
                 <>
-                  <Card className="card">
+                  <Card className="card" onClick={async () => {
+                          await openModal(project._id);
+                        }}
+                        >
                     <CardContent className="cardContent">
                       <Typography gutterBottom variant="h5" component="h2">
                         {project.title}

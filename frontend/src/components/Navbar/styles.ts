@@ -117,8 +117,11 @@ export const Hamburger = styled.div<MenuProps>`
 export const Close = styled.div<MenuProps>`
   position: absolute;
   right: 2rem;
-  font-size: 2.5rem;
-  color: var(--title-font);
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  color: white;
   z-index: 999;
 
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
