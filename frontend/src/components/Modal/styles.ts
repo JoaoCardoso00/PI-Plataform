@@ -160,17 +160,20 @@ export const Votebox = styled.div`
   div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 302px;
+    height: 76px;
+    margin-top: 0.7rem;
   }
 
   form {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
 
     input {
       border: 0;
       padding: 10px;
-      margin-top: 1.5rem;
     }
 
     button {
@@ -179,6 +182,7 @@ export const Votebox = styled.div`
       border: 0;
       color: #fefefe;
       font-size: 20px;
+      margin-top: 0.2rem;
     }
 
     span {
