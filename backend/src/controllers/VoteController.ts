@@ -97,12 +97,12 @@ class VoteController {
     const { projectId, email } = req.body;
     
     try {
-      await Vote.create({
+      const vote = await Vote.create({
         project_id: projectId,
         email,
       });
 
-      return res.status(200)
+      return res.json(vote)
     } catch (err) {
       return res.status(400).json({
         message: 'Falha ao cadastrar',
