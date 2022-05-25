@@ -88,23 +88,23 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
 
           <div>
             <div>
-            <iframe
-              title={`${project._id}`}
-              src={project.video}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              <iframe
+                title={`${project._id}`}
+                src={project.video}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>
-                <ReCAPTCHA
-                  sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
-                  onChange={() => {
-                    setIsValidated(true);
-                  }}
-                />
+              <ReCAPTCHA
+                sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
+                onChange={() => {
+                  setIsValidated(true);
+                }}
+              />
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"
