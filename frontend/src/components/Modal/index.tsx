@@ -87,6 +87,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
           </div>
 
           <div>
+            <div>
             <iframe
               title={`${project._id}`}
               src={project.video}
@@ -94,6 +95,7 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
+            </div>
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>

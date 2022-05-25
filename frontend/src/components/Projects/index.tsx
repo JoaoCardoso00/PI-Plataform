@@ -60,7 +60,7 @@ export function ProjectSection() {
           onChange={(e) => {
             setFilter((state) => (state = e.target.value));
           }}
-          placeholder="Search Project"
+          placeholder="Procurar Projeto"
         />
         <button
           onClick={async () => {
@@ -78,32 +78,32 @@ export function ProjectSection() {
               <Skeleton
                 sx={{ bgcolor: "white", opacity: 0.5 }}
                 variant="rectangular"
-                width={500}
-                height={300}
+                width={544}
+                height={139}
               />
               <Skeleton
                 sx={{ bgcolor: "white", opacity: 0.5 }}
                 variant="rectangular"
-                width={500}
-                height={300}
+                width={544}
+                height={139}
               />
               <Skeleton
                 sx={{ bgcolor: "white", opacity: 0.5 }}
                 variant="rectangular"
-                width={500}
-                height={300}
+                width={544}
+                height={139}
               />
               <Skeleton
                 sx={{ bgcolor: "white", opacity: 0.5 }}
                 variant="rectangular"
-                width={500}
-                height={300}
+                width={544}
+                height={139}
               />
               <Skeleton
                 sx={{ bgcolor: "white", opacity: 0.5 }}
                 variant="rectangular"
-                width={500}
-                height={300}
+                width={544}
+                height={139}
               />
             </>
           )}
