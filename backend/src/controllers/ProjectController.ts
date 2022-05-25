@@ -1,9 +1,9 @@
 import Project from '../models/Schemas/Project';
 import Period from '../models/Schemas/Period';
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 
 class ProjectController {
-// @ts-ignore
+  // @ts-ignore
   async index(req: Request, res: Response) {
     const projects = await Project.find({});
 
@@ -26,24 +26,24 @@ class ProjectController {
   async store(req: Request, res: Response) {
     try {
       const {
-      title, image, description, participants, github, video, period_id
-    } = req.body;
+        title, image, description, participants, github, video, period_id
+      } = req.body;
 
-    const period = await Period.findOne({ _id: period_id });
-    if (!period) {
-      return res.status(401).json({
-        message: 'Periodo nao encontrado'
-      })
-    }
+      const period = await Period.findOne({ _id: period_id });
+      if (!period) {
+        return res.status(401).json({
+          message: 'Periodo nao encontrado'
+        })
+      }
 
-    const project = await Project.create({
-      title, image, description, participants, github, video, period_id: period.id
-    });
-    await Period.findByIdAndUpdate({ _id: period_id }, { $push: { projects: project } })
-
-    return res.json(project);
+      const project = await Project.create({
+        title, image, description, participants, github, video, period_id: period.id
+      });
+      await Period.findByIdAndUpdate({ _id: period_id }, { $push: { projects: project } })
+      
+      return res.status(200)
     } catch (error) {
-      return res.json({error})
+      return res.json({ error })
     }
   }
 
