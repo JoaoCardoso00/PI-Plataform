@@ -168,6 +168,7 @@ export const Votebox = styled.div`
     width: 100%;
 
     input {
+      margin-top: 2rem;
       border: 0;
       padding: 0.625rem;
     }

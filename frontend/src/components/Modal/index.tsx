@@ -99,14 +99,12 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>
-              <div>
                 <ReCAPTCHA
                   sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
                   onChange={() => {
                     setIsValidated(true);
                   }}
                 />
-              </div>
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"
