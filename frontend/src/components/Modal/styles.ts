@@ -200,10 +200,10 @@ export const Votebox = styled.div`
     input {
       border: 0;
       padding: 0.625rem;
-      width: 70%;
+      width: 85%;
     }
     button {
-      width: 70%;
+      width: 85%;
     }
   }
 `;
