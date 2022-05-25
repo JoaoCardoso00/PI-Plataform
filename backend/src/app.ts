@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import rateLimiter from './middlewares/rateLimiter';
+import helmet from 'helmet'
 import 'dotenv/config'
 const app = express();
 
@@ -18,6 +19,8 @@ const allowedOrigins = [
   'https://pi.omnicesupa.com',
   'https://pi.omnicesupa.com/',
 ];
+
+app.use(helmet({ crossOriginOpenerPolicy: true }))
 
 app.use(cors({
   origin: (origin, callback) => {
