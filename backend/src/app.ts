@@ -2,9 +2,8 @@ import routes from './routes';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import rateLimiter from './middlewares/rateLimiter';
-import helmet from 'helmet'
 import 'dotenv/config'
+import rateLimit from 'express-rate-limit'
 const app = express();
 
 mongoose.connect(
@@ -20,8 +19,6 @@ const allowedOrigins = [
   'https://pi.omnicesupa.com/',
 ];
 
-app.use(helmet({ crossOriginOpenerPolicy: true }))
-
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
@@ -36,9 +33,14 @@ app.use(cors({
   },
 }));
 app.use(express.json());
-app.use(rateLimiter);
 
+const limiter = rateLimit({
+	windowMs: 60 * 1000,
+	max: 1,
+	standardHeaders: true,
+	legacyHeaders: false,
+})
 
-app.use('/v1', routes);
+app.use('/v1', limiter, routes);
 
 export const handler = app;
