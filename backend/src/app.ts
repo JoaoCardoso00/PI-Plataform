@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import 'dotenv/config'
-import rateLimit from 'express-rate-limit'
+// import rateLimit from 'express-rate-limit'
 const app = express();
 
 mongoose.connect(
@@ -11,12 +11,11 @@ mongoose.connect(
 );
 
 const allowedOrigins = [
-  'http://localhost:3001',
   'http://localhost:3000',
-  'http://localhost:4173/',
+  'http://localhost:3001',
   'http://pi.omnicesupa.com',
   'https://pi.omnicesupa.com',
-  'https://pi.omnicesupa.com/',
+
 ];
 
 app.use(cors({
@@ -34,15 +33,15 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const limiter = rateLimit({
-	windowMs: 60 * 1000,
-	max: 1,
-	standardHeaders: true,
-	legacyHeaders: false,
-})
+// const limiter = rateLimit({
+// 	windowMs: 60 * 1000,
+// 	max: 1,
+// 	standardHeaders: true,
+// 	legacyHeaders: false,
+// })
 
-// Apply the rate limiting middleware to all requests
-app.use('/v1', limiter)
+// // Apply the rate limiting middleware to all requests
+// app.use('/v1', limiter)
 
 app.use('/v1', routes);
 

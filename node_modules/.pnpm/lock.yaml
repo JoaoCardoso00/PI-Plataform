@@ -1,0 +1,14 @@
+lockfileVersion: 5.4
+
+specifiers:
+  helmet: ^5.1.0
+
+dependencies:
+  helmet: 5.1.0
+
+packages:
+
+  /helmet/5.1.0:
+    resolution: {integrity: sha512-klsunXs8rgNSZoaUrNeuCiWUxyc+wzucnEnFejUg3/A+CaF589k9qepLZZ1Jehnzig7YbD4hEuscGXuBY3fq+g==}
+    engines: {node: '>=12.0.0'}
+    dev: false
