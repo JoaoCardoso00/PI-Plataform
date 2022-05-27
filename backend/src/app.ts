@@ -41,6 +41,9 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 })
 
-app.use('/v1', limiter, routes);
+// Apply the rate limiting middleware to all requests
+app.use('/v1', limiter)
+
+app.use('/v1', routes);
 
 export const handler = app;
