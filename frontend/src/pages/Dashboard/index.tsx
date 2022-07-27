@@ -144,9 +144,9 @@ export function Dashboard() {
             {projects.map((project) => (
               <section
                 id="table-project"
-                key={project._id}
+                key={project._id._id}
                 onClick={() =>
-                  getProjectVotesTable(project._id, project.title)
+                  getProjectVotesTable(project._id._id, project.title)
                 }
               >
                 <p>{project._id!.title}</p>

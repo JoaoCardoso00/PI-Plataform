@@ -1,6 +1,5 @@
 import Vote from '../models/Schemas/Vote';
 import Project from '../models/Schemas/Project';
-import { isAfter, parseISO } from 'date-fns';
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongoose';
 
@@ -96,30 +95,14 @@ class VoteController {
 
   async store(req: Request, res: Response) {
     const { projectId, email } = req.body;
-
-    const date = '2022-05-30 23:59:59';
-    const parsedDate = parseISO(date);
-    const nowDate = new Date();
-
-    if (isAfter(nowDate, parseISO('2022-05-23 00:00:00'))) {
-      return res.status(401).json({
-        message: 'Votação ainda não começou'
-      })
-    }
-
-    if (isAfter(nowDate, parsedDate)) {
-      return res.status(401).json({
-        message: 'O tempo de votação já acabou!'
-      })
-    }
-
+    
     try {
-      const voting = await Vote.create({
+      await Vote.create({
         project_id: projectId,
         email,
       });
 
-      return res.json(voting);
+      return res.status(200)
     } catch (err) {
       return res.status(400).json({
         message: 'Falha ao cadastrar',

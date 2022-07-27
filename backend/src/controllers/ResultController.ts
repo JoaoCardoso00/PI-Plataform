@@ -1,14 +1,16 @@
 import Vote from '../models/Schemas/Vote';
-import {Request, Response} from 'express';
+import { Request, Response } from 'express';
 // @ts-ignore
 import Project from '../models/Schemas/Project';
 // @ts-ignore
-import { Workbook } from 'exceljs';
+import pkg from 'exceljs';
 // @ts-ignore
 import tempfile from 'tempfile';
 
+const { Workbook } = pkg
+
 class ResultController {
-// @ts-ignore
+  // @ts-ignore
 
   async show(req: Request, res: Response) {
     const { projectId } = req.params;
@@ -23,52 +25,59 @@ class ResultController {
       })
     }
 
-    // const populated = await Project.populate(
-    //   votes,
-    //   {
-    //     path: 'project_id',
-    //     select: 'title',
-    //   },
-    // );
+    const populated = await Project.populate(
+      votes,
+      {
+        path: 'project_id',
+        select: 'title',
+      },
+    );
 
-    // console.log(populated);
-    
-  //   const projectTitle = populated[0].title;
-  //   const voteEmails = populated.map(vote => {
-  //     return vote.email;
-  //   });
+    console.log(populated);
+      //@ts-ignore
 
-  //   let result = {};
-  //   voteEmails.forEach(x => {
-  //     result[x] = (result[x] || 0) + 1;
-  //   });
+    const projectTitle = populated[0]._id.title;
+    const voteEmails = populated.map(vote => {
+      //@ts-ignore
+      return vote.email;
+    });
 
-  //   const emailCounter = [];
-  //   for (let i = 0; i < Object.keys(result).length; i += 1) {
-  //     const objEmail = Object.keys(result)[i]
 
-  //    emailCounter.push({
-  //       email: objEmail,
-  //       counter: result[objEmail]
-  //     })
-  //   }
+    let result = {};
+    voteEmails.forEach(x => {
+      //@ts-ignore
 
-  //   const workbook = new Workbook();
-  //   const sheet = workbook.addWorksheet(projectTitle);
+      result[x] = (result[x] || 0) + 1;
+    });
 
-  //   sheet.columns = [
-  //     { header: 'Email', key: 'email', width: 32 },
-  //     { header: 'Qtde. votos', key: 'amount', width: 10 },
-  //   ]
 
-  //   emailCounter.forEach(i => {
-  //     sheet.addRow({ email: i.email, amount: i.counter });
-  //   })
+    const emailCounter = [];
+    for (let i = 0; i < Object.keys(result).length; i += 1) {
+      const objEmail = Object.keys(result)[i]
 
-  //   const tempFilePath = tempfile('.xlsx');
-  //   await workbook.xlsx.writeFile(tempFilePath, { filename: projectTitle });
+      emailCounter.push({
+        email: objEmail,
+        //@ts-ignore
+        counter: result[objEmail]
+      })
+    }
 
-  //   return res.sendFile(tempFilePath);
+    const workbook = new Workbook();
+    const sheet = workbook.addWorksheet(projectTitle);
+
+    sheet.columns = [
+      { header: 'Email', key: 'email', width: 32 },
+      { header: 'Qtde. votos', key: 'amount', width: 10 },
+    ]
+
+    emailCounter.forEach(i => {
+      sheet.addRow({ email: i.email, amount: i.counter });
+    })
+
+    const tempFilePath = tempfile('.xlsx');
+    await workbook.xlsx.writeFile(tempFilePath, { filename: projectTitle });
+
+    return res.sendFile(tempFilePath);
   }
 }
 

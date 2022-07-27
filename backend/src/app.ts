@@ -2,8 +2,10 @@ import routes from './routes';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import rateLimiter from './middlewares/rateLimiter';
 import 'dotenv/config'
+import fs from 'fs'
+import morgan from 'morgan'
+import path from 'path'
 const app = express();
 
 mongoose.connect(
@@ -11,13 +13,13 @@ mongoose.connect(
 );
 
 const allowedOrigins = [
-  'http://localhost:3001',
-  'http://localhost:3000',
-  'http://localhost:4173/',
-  'http://pi.omnicesupa.com',
   'https://pi.omnicesupa.com',
-  'https://pi.omnicesupa.com/',
 ];
+
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+
+// setup the logger
+app.use(morgan('combined', { stream: accessLogStream }))
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -32,9 +34,8 @@ app.use(cors({
     return callback(null, true);
   },
 }));
-app.use(express.json());
-app.use(rateLimiter);
 
+app.use(express.json());
 
 app.use('/v1', routes);
 

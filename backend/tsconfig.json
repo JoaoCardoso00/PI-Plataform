@@ -18,5 +18,5 @@
     "skipLibCheck": true,
     "baseUrl": "."
   },
-  "include": ["src"]
+  "include": ["src", "socorro.js"]
 }

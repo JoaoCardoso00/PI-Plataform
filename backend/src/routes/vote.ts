@@ -5,7 +5,6 @@ import auth from '../middlewares/auth';
 
 const router = express.Router()
 
-
 router.get("/", auth, VoteController.index);
 router.get("/:projectId", auth, VoteController.show);
 router.get("/:projectId/emails", auth, ResultController.show);

@@ -42,6 +42,7 @@ export function Main() {
         <IntroductionContent>
           <IntroductionContentContainer>
             <LeftHome>
+            <Link to="home" smooth={true}>
               <span>BOAS-VINDAS A COMPUTAÇÃO AMOSTRA 2022 👋 👋</span>
               <h1>Amazon Hacking</h1>
               <p>
@@ -54,6 +55,7 @@ export function Main() {
                 das Empresas Paraenses de Software e TIC - ParaTIC e da
                 organização não governamental Instituto Jovem Exportador.
               </p>
+              </Link>
               <div>
                 <Link to="periods" smooth={true}>
                   <button>Ver Projetos</button>

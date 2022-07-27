@@ -87,36 +87,37 @@ const Modal: React.FC<ModalProps> = ({ project, isOpen, close }) => {
           </div>
 
           <div>
-            <iframe
-              title={`${project._id}`}
-              src={project.video}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div>
+              <iframe
+                title={`${project._id}`}
+                src={project.video}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
             <Votebox>
               <h1>VOTE AQUI</h1>
               <p>Insira o seu email* para realizar a votação desse projeto</p>
-              <div>
-                <ReCAPTCHA
-                  sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
-                  onChange={() => {
-                    setIsValidated(true);
-                  }}
-                />
-              </div>
+              <ReCAPTCHA
+                sitekey="6LeQOu4fAAAAALPBe60k29AJbnumrCopWclKbinP"
+                onChange={() => {
+                  setIsValidated(true);
+                }}
+              />
               <form onSubmit={handleSubmit}>
                 <input
                   name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Seu e-mail"
+                  disabled
                 />
-                <button type="submit" disabled={!isValidated}>
-                  VOTAR
+                <button type="submit" disabled>
+                  A VOTAÇÃO JÁ TERMINOU
                 </button>
 
-                <span>* Só será valido 1 voto por email</span>
+                <span>* Só será válido 1 voto por email</span>
               </form>
             </Votebox>
           </div>

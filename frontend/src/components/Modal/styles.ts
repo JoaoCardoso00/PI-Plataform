@@ -5,13 +5,12 @@ export const Container = styled.div`
   width: 100%;
   padding: 2.5rem;
   overflow-y: auto;
-  overflow-x: hidden;
-  
+  overflow-x: auto;
+
   header {
     display: flex;
     align-items: center;
     flex-direction: column;
-
 
     img {
       width: 3.125rem;
@@ -31,18 +30,21 @@ export const Container = styled.div`
       color: var(--title-font);
     }
   }
-  iframe {
-    width: 600px;
-    height: 300px;
-    @media (max-width: 600px) {
-      & {
-        width: 400px;
-      }
-    }
 
-    @media (max-width: 400px) {
-      & {
-        width: 350px;
+  div {
+    iframe {
+      width: 600px;
+      height: 300px;
+      @media (max-width: 600px) {
+        & {
+          width: 400px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        & {
+          width: 350px;
+        }
       }
     }
   }
@@ -59,7 +61,7 @@ export const Container = styled.div`
     background-color: var(--title-font);
     font-size: 30px;
     color: #fefefe;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
@@ -70,7 +72,7 @@ export const Container = styled.div`
     border: none;
     outline: none;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
@@ -86,17 +88,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-height: 904px) {
-    .close {
-      top: 0;
-      right: 0;
-      color: #fe7940;
-      background-color: transparent;
-    }
-  }
-
   p {
-    margin: 30px 0 20px 0;
     font-size: 1rem;
   }
 
@@ -136,12 +128,11 @@ export const Container = styled.div`
     @media (max-width: 1465px) {
       width: 100%;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
 
       div {
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 30px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -156,21 +147,30 @@ export const Votebox = styled.div`
   color: #fefefe;
   width: 500px;
   padding: 2rem 3rem;
-  
+
   div {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    width: 18.875rem;
+    height: 4.75rem;
+    margin-top: 1.2em;
+    margin-bottom: 0.3em;
+    iframe {
+      width: 18.75rem;
+      height: 18.75rem;
+ }
   }
 
   form {
     display: flex;
-    width: 100%;
     flex-direction: column;
+    width: 100%;
 
     input {
+      margin-top: 2rem;
       border: 0;
-      padding: 10px;
-      margin-top: 1.5rem;
+      padding: 0.625rem;
     }
 
     button {
@@ -179,6 +179,7 @@ export const Votebox = styled.div`
       border: 0;
       color: #fefefe;
       font-size: 20px;
+      margin-top: 0.2rem;
     }
 
     span {
@@ -190,5 +191,19 @@ export const Votebox = styled.div`
 
   p {
     font-size: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    form {
+      align-items: center;
+    }
+    input {
+      border: 0;
+      padding: 0.625rem;
+      width: 85%;
+    }
+    button {
+      width: 85%;
+    }
   }
 `;

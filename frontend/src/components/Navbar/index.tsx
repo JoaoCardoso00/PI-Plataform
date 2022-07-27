@@ -17,10 +17,10 @@ export function Navbar() {
 
   return (
     <NavbarContainer>
-      <Logo>
         <img src={CompAmostraLogo} alt="logo_comp_amostra" />
         CompAmostra
       </Logo>
+      </Link>
 
       <Hamburger isOpen={isOpen} onClick={changeNavBarState}>
         <span />
@@ -38,10 +38,10 @@ export function Navbar() {
       </Close>
 
       <Menu isOpen={isOpen}>
-        <a>
+        <Link to="home" smooth={true} onClick={closeNavBar}>
           Início
           <span />
-        </a>
+        </Link>
         <Link to="about" smooth={true} onClick={closeNavBar}>
           Sobre
           <span />
