@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <NavbarContainer>
-      <Logo href="#">
+      <Logo>
         <img src={CompAmostraLogo} alt="logo_comp_amostra" />
         CompAmostra
       </Logo>
@@ -38,7 +38,7 @@ export function Navbar() {
       </Close>
 
       <Menu isOpen={isOpen}>
-        <a href="">
+        <a>
           Início
           <span />
         </a>
